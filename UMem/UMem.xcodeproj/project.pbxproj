@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		82495989275CA40F008AF5E3 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82495988275CA40F008AF5E3 /* HomeView.swift */; };
+		8249598E275F7FEA008AF5E3 /* CameraService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8249598D275F7FEA008AF5E3 /* CameraService.swift */; };
+		82495990275F9A40008AF5E3 /* PhotoCaptureProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8249598F275F9A40008AF5E3 /* PhotoCaptureProcessor.swift */; };
+		82495992275FB9F7008AF5E3 /* ImageResizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82495991275FB9F7008AF5E3 /* ImageResizer.swift */; };
+		82495995275FC21E008AF5E3 /* PhotoCapturerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82495994275FC21E008AF5E3 /* PhotoCapturerViewModel.swift */; };
 		8293FE73275C668E00BD7D2B /* UMemApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8293FE72275C668E00BD7D2B /* UMemApp.swift */; };
 		8293FE75275C668E00BD7D2B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8293FE74275C668E00BD7D2B /* ContentView.swift */; };
 		8293FE77275C669100BD7D2B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8293FE76275C669100BD7D2B /* Assets.xcassets */; };
@@ -40,6 +44,10 @@
 
 /* Begin PBXFileReference section */
 		82495988275CA40F008AF5E3 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		8249598D275F7FEA008AF5E3 /* CameraService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraService.swift; sourceTree = "<group>"; };
+		8249598F275F9A40008AF5E3 /* PhotoCaptureProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCaptureProcessor.swift; sourceTree = "<group>"; };
+		82495991275FB9F7008AF5E3 /* ImageResizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageResizer.swift; sourceTree = "<group>"; };
+		82495994275FC21E008AF5E3 /* PhotoCapturerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCapturerViewModel.swift; sourceTree = "<group>"; };
 		8293FE6F275C668E00BD7D2B /* UMem.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UMem.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8293FE72275C668E00BD7D2B /* UMemApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UMemApp.swift; sourceTree = "<group>"; };
 		8293FE74275C668E00BD7D2B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -81,6 +89,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8249598A275F7F63008AF5E3 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				8249598D275F7FEA008AF5E3 /* CameraService.swift */,
+				8249598F275F9A40008AF5E3 /* PhotoCaptureProcessor.swift */,
+				82495991275FB9F7008AF5E3 /* ImageResizer.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		82495993275FC17E008AF5E3 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				82495994275FC21E008AF5E3 /* PhotoCapturerViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		8293FE66275C668E00BD7D2B = {
 			isa = PBXGroup;
 			children = (
@@ -104,6 +130,8 @@
 		8293FE71275C668E00BD7D2B /* UMem */ = {
 			isa = PBXGroup;
 			children = (
+				82495993275FC17E008AF5E3 /* ViewModel */,
+				8249598A275F7F63008AF5E3 /* Service */,
 				8293FEA1275C6FFE00BD7D2B /* View */,
 				8293FE72275C668E00BD7D2B /* UMemApp.swift */,
 				8293FE74275C668E00BD7D2B /* ContentView.swift */,
@@ -280,12 +308,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8249598E275F7FEA008AF5E3 /* CameraService.swift in Sources */,
 				8293FE7C275C669100BD7D2B /* Persistence.swift in Sources */,
+				82495992275FB9F7008AF5E3 /* ImageResizer.swift in Sources */,
 				82495989275CA40F008AF5E3 /* HomeView.swift in Sources */,
 				8293FE7F275C669100BD7D2B /* UMem.xcdatamodeld in Sources */,
 				8293FEA9275C832500BD7D2B /* SideMenu.swift in Sources */,
+				82495990275F9A40008AF5E3 /* PhotoCaptureProcessor.swift in Sources */,
 				8293FEAD275C839800BD7D2B /* MemHomePageView.swift in Sources */,
 				8293FE75275C668E00BD7D2B /* ContentView.swift in Sources */,
+				82495995275FC21E008AF5E3 /* PhotoCapturerViewModel.swift in Sources */,
 				8293FE73275C668E00BD7D2B /* UMemApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
