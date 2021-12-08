@@ -24,6 +24,7 @@ class PhotoCapturerViewModel:ObservableObject{
     
     @Published var willCapturePhoto = false
     
+    
     var ErrorAlertion : ErrorAlertion!
     
     var session: AVCaptureSession
@@ -85,6 +86,14 @@ class PhotoCapturerViewModel:ObservableObject{
     //结束相机捕捉
     func stopCapturing(){
         service.stop()
+    }
+    
+    //获取拍摄的照片到列表
+    func getPhotoList() -> [Photo]{
+        
+        print(service.photoList.count)
+        return self.service.photoList
+        
     }
     
     

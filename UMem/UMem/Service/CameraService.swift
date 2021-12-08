@@ -40,6 +40,8 @@ public class UmemCameraService{
     //输出的照片结构体，用于存放照片
     @Published public var photo: Photo?
     
+    @Published public var photoList: [Photo] = []
+    
     // 相应的警告结构体成员变量
     public var alertError:ErrorAlertion = ErrorAlertion()
     
@@ -376,6 +378,9 @@ public class UmemCameraService{
                         self.photo = Photo(originalData: data)
                         print("获得照片")
                         print(self.photo!)
+                        //add photo to photo list
+                        self.photoList.append(self.photo!)
+                        print(self.photoList)
                     }else{
                         print("no photo data")
                     }

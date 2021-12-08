@@ -10,7 +10,7 @@ import SwiftUI
 struct CameraCapturingView: View {
     
     //视频捕捉的viewModel
-    @StateObject public var model = PhotoCapturerViewModel()
+    @ObservedObject public var model = PhotoCapturerViewModel()
     
     @State private var isShowingDetailView = false
     
@@ -103,7 +103,7 @@ struct CameraCapturingView: View {
                                 .font(.system(size: 40, weight: .medium, design: .default))
                         })
                         .accentColor(model.isFlashOn ? .yellow : .white)
-                        
+                        Spacer()
                         nextStepButton
                     }
                     
