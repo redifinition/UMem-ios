@@ -104,18 +104,22 @@ public class UmemCameraService{
     
     
     //在会话队列中调用此函数
-    private func configureCaptureSession(){
-        if setupResult != .success{
+    private func configureCaptureSession() {
+        if setupResult != .success {
             return
         }
         
         session.beginConfiguration()
         
+        /*
+         Do not create an AVCaptureMovieFileOutput when setting up the session because
+         Live Photo is not supported when AVCaptureMovieFileOutput is added to the session.
+         */
         session.sessionPreset = .photo
         
-        //add photo input
-        do{
-            var defaultVideoDevice:AVCaptureDevice?
+        // Add video input.
+        do {
+            var defaultVideoDevice: AVCaptureDevice?
             
             if let backCameraDevice = AVCaptureDevice.default(.builtInWideAngleCamera, for: .video, position: .back) {
                 // If a rear dual camera is not available, default to the rear wide angle camera.
@@ -125,8 +129,8 @@ public class UmemCameraService{
                 defaultVideoDevice = frontCameraDevice
             }
             
-            guard let videoDevice = defaultVideoDevice else{
-                print("Default video device is unavailable!")
+            guard let videoDevice = defaultVideoDevice else {
+                print("Default video device is unavailable.")
                 setupResult = .configurationFailed
                 session.commitConfiguration()
                 return
@@ -134,29 +138,31 @@ public class UmemCameraService{
             
             let videoDeviceInput = try AVCaptureDeviceInput(device: videoDevice)
             
-            if session.canAddInput(vieoDeviceInput){
+            if session.canAddInput(videoDeviceInput) {
                 session.addInput(videoDeviceInput)
                 self.vieoDeviceInput = videoDeviceInput
-            }else{
-                print("Could not add video device input to the session")
+                
+            } else {
+                print("Couldn't add video device input to the session.")
                 setupResult = .configurationFailed
                 session.commitConfiguration()
                 return
             }
-        }catch{
+        } catch {
             print("Couldn't create video device input: \(error)")
             setupResult = .configurationFailed
             session.commitConfiguration()
             return
-            
         }
         
-        // 加入图片的输出
-        if session.canAddOutput(photoOutput){
+        // Add the photo output.
+        if session.canAddOutput(photoOutput) {
             session.addOutput(photoOutput)
+            
             photoOutput.isHighResolutionCaptureEnabled = true
             photoOutput.maxPhotoQualityPrioritization = .quality
-        }else{
+            
+        } else {
             print("Could not add photo output to the session")
             setupResult = .configurationFailed
             session.commitConfiguration()
@@ -165,6 +171,7 @@ public class UmemCameraService{
         
         session.commitConfiguration()
         self.isConfigured = true
+        
         self.start()
     }
     
@@ -367,6 +374,8 @@ public class UmemCameraService{
                 }, completionHandler: {(PhotoCaptureProcessor) in
                     if let data = PhotoCaptureProcessor.photoData{
                         self.photo = Photo(originalData: data)
+                        print("获得照片")
+                        print(self.photo!)
                     }else{
                         print("no photo data")
                     }
@@ -389,6 +398,22 @@ public class UmemCameraService{
                 self.inProgressPhotoCaptureDelegates[photoCaptureProcessor.requestedPhotoSettings.uniqueID] = photoCaptureProcessor
                 self.photoOutput.capturePhoto(with: photoSetting, delegate: photoCaptureProcessor)
             }
+        }
+    }
+    
+    public func configure() {
+        /*
+         Setup the capture session.
+         In general, it's not safe to mutate an AVCaptureSession or any of its
+         inputs, outputs, or connections from multiple threads at the same time.
+         
+         Don't perform these tasks on the main queue because
+         AVCaptureSession.startRunning() is a blocking call, which can
+         take a long time. Dispatch session setup to the sessionQueue, so
+         that the main queue isn't blocked, which keeps the UI responsive.
+         */
+        sessionFifoQueue.async {
+            self.configureCaptureSession()
         }
     }
 }

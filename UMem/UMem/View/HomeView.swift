@@ -56,6 +56,13 @@ struct HomeView: View {
             )
             Spacer()
             
+            //点击添加回忆的按钮
+            NavigationLink(destination: {
+                CameraCapturingView()
+            }, label: {
+                Image(systemName: "pencil")
+            })
+            
         }
     }
 }
