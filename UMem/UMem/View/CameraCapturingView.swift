@@ -10,7 +10,7 @@ import SwiftUI
 struct CameraCapturingView: View {
     
     //视频捕捉的viewModel
-    @ObservedObject public var model = PhotoCapturerViewModel()
+    @StateObject var model = PhotoCapturerViewModel()
     
     @State private var isShowingDetailView = false
     
@@ -65,7 +65,8 @@ struct CameraCapturingView: View {
     //next step
     var nextStepButton: some View{
         
-        NavigationLink(destination: PictureResultView()) {
+        NavigationLink(destination: PictureResultView()
+                        .environmentObject(model)) {
             // Button design
             Image(systemName: "arrowshape.turn.up.right.circle")
                 .resizable()
@@ -105,6 +106,12 @@ struct CameraCapturingView: View {
                         .accentColor(model.isFlashOn ? .yellow : .white)
                         Spacer()
                         nextStepButton
+
+                        
+                        Button(action: {
+                            print(model.getPhotoList())
+                            print(model.photo!)
+                        }, label: {Text("click")})
                     }
                     
                     CameraCapturingPreview(session: model.session)
@@ -160,6 +167,7 @@ struct CameraCapturingView: View {
             }
         }
     }
+        
 }
 
 struct CameraCapturingView_Previews: PreviewProvider {

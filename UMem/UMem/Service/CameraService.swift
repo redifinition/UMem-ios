@@ -376,11 +376,8 @@ public class UmemCameraService{
                 }, completionHandler: {(PhotoCaptureProcessor) in
                     if let data = PhotoCaptureProcessor.photoData{
                         self.photo = Photo(originalData: data)
-                        print("获得照片")
-                        print(self.photo!)
                         //add photo to photo list
                         self.photoList.append(self.photo!)
-                        print(self.photoList)
                     }else{
                         print("no photo data")
                     }

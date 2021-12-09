@@ -10,7 +10,7 @@ import SwiftUI
 struct PictureResultView: View {
     
     //视频捕捉的viewModel
-    @ObservedObject public var model = PhotoCapturerViewModel()
+    @EnvironmentObject  var model : PhotoCapturerViewModel
     
     @State private var image: Image?
     @State private var shouldPresentImagePicker = false
@@ -21,7 +21,12 @@ struct PictureResultView: View {
     
     var body: some View {
             VStack{
-                // WARNING: Force wrapped image for demo purpose
+                Image(uiImage: model.photo.image!)
+                Button(action: {
+                    print(model.getPhotoList())
+                }, label: {
+                    Text("click")
+                })
                 Image(systemName: "plus.viewfinder")
                     .resizable()
                     .aspectRatio(contentMode: .fill)
@@ -40,7 +45,11 @@ struct PictureResultView: View {
                     }), ActionSheet.Button.cancel()])
                 }
             }
+                       
+                       
             }
+                       
+                       
     }
     
     

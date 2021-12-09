@@ -10,6 +10,8 @@ import SwiftUI
 struct HomeView: View {
     @Binding var showMenu:Bool
     
+    @State var userName:String = "Redefinition"
+    
     var body: some View {
             
         VStack{
@@ -52,10 +54,35 @@ struct HomeView: View {
                 Image("logo")
                     .resizable()
                     .aspectRatio( contentMode: .fit)
-                    .frame(width: 50, height:50)
+                    .frame(width: 40, height:40)
             )
-            Spacer()
+            //Spacer()
+            VStack(alignment: .leading,
+                   spacing:6){
+            HStack{
+            Image("Date")
+                        .resizable()
+                        .aspectRatio( contentMode: .fit)
+                        .frame(width: 50, height:50)
+                        .padding(.horizontal)
+            Text(Date().addingTimeInterval(600),style: .date)
+                .font(.title2)
+                .fontWeight(.bold)
+                .padding(.leading)
+            }
             
+                
+                
+            // 用户的名字
+            Text("Hello,\(userName)")
+                    .fontWeight(.bold)
+                    .foregroundColor(.gray)
+                    .padding(.leading)
+                    .font(.title3)
+                    
+            }
+                   .frame(maxWidth: .infinity, alignment: .leading )
+            Spacer()
             //点击添加回忆的按钮
             NavigationLink(destination: {
                 CameraCapturingView()
