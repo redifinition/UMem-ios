@@ -99,11 +99,19 @@ struct HomeView: View {
                 //开始界面欢迎卡片
                     ZStack{
                         WelcomeCardViewTwo
-                            .offset(x: 100)
+                            .offset(x: showCard ? -20 : 0, y: -10)
+                            .shadow(color:Color(.sRGB, red: 64/255, green: 64/255, blue: 64/255, opacity: 0.3),radius: 40, x:0,y:20)
+                            
+                            .rotation3DEffect(Angle(degrees: showCard ? 0 : 10), axis: (x: 0,y:10, z:0))
+                            .animation(.spring(response: 0.6, dampingFraction: 0.6, blendDuration: 0).delay(0.1))
+                        
                         WelcomeCardViewOne
-                            .shadow(color: Color(.sRGB, red: 17/255, green: 82/255, blue: 197/255, opacity: 1), radius: showCard ? 100 :40, x:0,y:showCard ? 100 : 20)
+                            .shadow(color: Color(.sRGB, red: 64/255, green: 64/255, blue: 64/255, opacity: 0.3), radius: showCard ? 100 :40, x:0,y:showCard ? 100 : 20)
+                            .offset(x: showCard ? -330 : 0)
+                            .rotationEffect(Angle(degrees: showCard ? 10 : 0))
+                            .animation(.spring(response: 0.6, dampingFraction: 0.6, blendDuration: 0).delay(0.1))
                     }.onTapGesture {
-                        <#code#>
+                        self.showCard.toggle()
                     }
                 
                 Spacer()
@@ -111,10 +119,10 @@ struct HomeView: View {
                 NavigationLink(destination: {
                     CameraCapturingView()
                 }, label: {
-                    Image(systemName: "pencil")
+                    Image("StartButton")
                         .resizable()
                         .aspectRatio( contentMode: .fit)
-                        .frame(width: 50, height: 50)
+                        .frame(width: 60, height: 60)
                 })
                 
             }
@@ -131,7 +139,7 @@ struct HomeView: View {
                 VStack{
                     ZStack{
                         RoundedRectangle(cornerRadius: 0)
-                            .foregroundColor(Color(.sRGB, red: 200/255, green: 200/255, blue: 200/255, opacity: 1))
+                            .foregroundColor(Color(.sRGB, red: 255/255, green: 223/255, blue: 201/255, opacity: 1))
             Image("DiaryImage")
                 .resizable()
                 .aspectRatio(contentMode: .fit)
@@ -170,30 +178,50 @@ struct HomeView: View {
     var WelcomeCardViewTwo: some View{
         VStack {
             ZStack{
-                RoundedRectangle(cornerRadius: 10)
+                RoundedRectangle(cornerRadius: 20)
                     .foregroundColor(Color(.sRGB, red: 230/255, green: 230/255, blue: 230/255, opacity: 1))
                 VStack{
                     ZStack{
                         RoundedRectangle(cornerRadius: 0)
                             .foregroundColor(Color(.sRGB, red: 200/255, green: 200/255, blue: 200/255, opacity: 1))
-            Image("DiaryImage")
+            Image("CardTwo")
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                     }
 
                     HStack {
                         VStack(alignment: .leading) {
-                            Text("Start recording today's life!")
-                                .font(.headline)
-                                .foregroundColor(.secondary)
-                            Text("Click the button below!")
+                            Text("How To Add a Memory?")
                                 .font(.title2)
                                 .fontWeight(.black)
                                 .foregroundColor(.primary)
                                 .lineLimit(1)
-                            Text(randomSentence[randomNum])
-                                .font(.caption)
+                            Text("Step 1: Capture")
+                                .font(.title3)
+                                .fontWeight(.medium)
+                                .foregroundColor(.primary)
+                                .lineLimit(1)
+                            Text("Take a photo with the camera or select a photo from photo library")
                                 .foregroundColor(.secondary)
+                                .font(.caption)
+                            Text("Step 2: Record")
+                                .font(.title3)
+                                .fontWeight(.medium)
+                                .foregroundColor(.primary)
+                                .lineLimit(2)
+                            Text("Record location, mood and thoughts!")
+                                .foregroundColor(.secondary)
+                                .lineLimit(2)
+                                .font(.caption)
+                            Text("Step 3: Collect!")
+                                .font(.title3)
+                                .fontWeight(.medium)
+                                .foregroundColor(.primary)
+                                .lineLimit(2)
+                            Text("Organize the memory group that belongs to you alone!")
+                                .foregroundColor(.secondary)
+                                .lineLimit(2)
+                                .font(.caption)
                         }
                         
                         //.layoutPriority(100)

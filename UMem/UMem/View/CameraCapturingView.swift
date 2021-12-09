@@ -106,14 +106,13 @@ struct CameraCapturingView: View {
                         .accentColor(model.isFlashOn ? .yellow : .white)
                         Spacer()
                         nextStepButton
-
                         
-                        Button(action: {
-                            print(model.getPhotoList())
-                            print(model.photo!)
-                        }, label: {Text("click")})
-                    }
-                    
+
+//                        Button(action: {
+//                            print(model.getPhotoList())
+//                            print(model.photo!)
+//                        }, label: {Text("click")})
+                    }.padding(.horizontal)
                     CameraCapturingPreview(session: model.session)
                         .gesture(
                             DragGesture().onChanged({ (val) in
