@@ -27,6 +27,7 @@
 		8293FE95275C669100BD7D2B /* UMemUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8293FE94275C669100BD7D2B /* UMemUITestsLaunchTests.swift */; };
 		8293FEA9275C832500BD7D2B /* SideMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8293FEA8275C832500BD7D2B /* SideMenu.swift */; };
 		8293FEAD275C839800BD7D2B /* MemHomePageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8293FEAC275C839800BD7D2B /* MemHomePageView.swift */; };
+		82D767BE2766574C005AE8A7 /* Memory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82D767BD2766574C005AE8A7 /* Memory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +71,7 @@
 		8293FE94275C669100BD7D2B /* UMemUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UMemUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		8293FEA8275C832500BD7D2B /* SideMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenu.swift; sourceTree = "<group>"; };
 		8293FEAC275C839800BD7D2B /* MemHomePageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemHomePageView.swift; sourceTree = "<group>"; };
+		82D767BD2766574C005AE8A7 /* Memory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Memory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +140,7 @@
 		8293FE71275C668E00BD7D2B /* UMem */ = {
 			isa = PBXGroup;
 			children = (
+				82D767BF27665752005AE8A7 /* Model */,
 				82495993275FC17E008AF5E3 /* ViewModel */,
 				8249598A275F7F63008AF5E3 /* Service */,
 				8293FEA1275C6FFE00BD7D2B /* View */,
@@ -188,6 +191,14 @@
 				8229F67A27611AE900D17C34 /* ImagePickerView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		82D767BF27665752005AE8A7 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				82D767BD2766574C005AE8A7 /* Memory.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -320,6 +331,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				82D767BE2766574C005AE8A7 /* Memory.swift in Sources */,
 				8249598E275F7FEA008AF5E3 /* CameraService.swift in Sources */,
 				8293FE7C275C669100BD7D2B /* Persistence.swift in Sources */,
 				82495992275FB9F7008AF5E3 /* ImageResizer.swift in Sources */,

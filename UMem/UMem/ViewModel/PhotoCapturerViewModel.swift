@@ -96,5 +96,9 @@ class PhotoCapturerViewModel:ObservableObject{
         
     }
     
+    func addPhoto(photo: Photo){
+        self.service.photoList.append(photo)
+    }
+    
     
 }

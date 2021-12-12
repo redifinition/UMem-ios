@@ -17,7 +17,7 @@ struct HomeView: View {
     //卡片展示
     @State var showCard = false
     
-    var randomNum = Int.random(in: 0...8)
+    var randomNum = Int.random(in: 0...7)
     
     var body: some View {
             

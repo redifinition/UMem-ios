@@ -10,13 +10,14 @@ import Foundation
 import SwiftUI
 import UIKit
 
-//这里我发现UIKit实现了使用UIImagePickerConttoller 实现照片的选取和拍摄
+//这里UIKit实现了使用UIImagePickerConttoller 实现照片的选取和拍摄
 
 struct UmemImagePickerView: UIViewControllerRepresentable {
     
     var sourceType: UIImagePickerController.SourceType = .photoLibrary
     @Binding var image: Image?
     @Binding var isPresented: Bool
+    @EnvironmentObject var model:PhotoCapturerViewModel
     
     func makeCoordinator() -> ImagePickerViewCoordinator {
         return ImagePickerViewCoordinator(image: $image, isPresented: $isPresented)
@@ -31,13 +32,14 @@ struct UmemImagePickerView: UIViewControllerRepresentable {
 
     func updateUIViewController(_ uiViewController: UIImagePickerController, context: Context) {
     }
-
 }
+
 
 class ImagePickerViewCoordinator: NSObject, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     
     @Binding var image: Image?
     @Binding var isPresented: Bool
+    //@EnvironmentObject var model:PhotoCapturerViewModel
     
     init(image: Binding<Image?>, isPresented: Binding<Bool>) {
         self._image = image
@@ -45,8 +47,11 @@ class ImagePickerViewCoordinator: NSObject, UINavigationControllerDelegate, UIIm
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
-            self.image = Image(uiImage: image)
+        if let photo = info[UIImagePickerController.InfoKey.originalImage] as? Photo {
+            self.image = Image(uiImage: photo.image!)
+            //print("选择到的图片")
+            //print(photo)
+            //self.model.addPhoto(photo: photo)//加入该图片
         }
         self.isPresented = false
     }
@@ -56,3 +61,4 @@ class ImagePickerViewCoordinator: NSObject, UINavigationControllerDelegate, UIIm
     }
     
 }
+
