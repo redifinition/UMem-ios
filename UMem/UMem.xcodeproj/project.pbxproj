@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8229F67B27611AE900D17C34 /* ImagePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8229F67A27611AE900D17C34 /* ImagePickerView.swift */; };
 		82495989275CA40F008AF5E3 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82495988275CA40F008AF5E3 /* HomeView.swift */; };
 		8249598E275F7FEA008AF5E3 /* CameraService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8249598D275F7FEA008AF5E3 /* CameraService.swift */; };
 		82495990275F9A40008AF5E3 /* PhotoCaptureProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8249598F275F9A40008AF5E3 /* PhotoCaptureProcessor.swift */; };
@@ -28,6 +27,7 @@
 		8293FEA9275C832500BD7D2B /* SideMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8293FEA8275C832500BD7D2B /* SideMenu.swift */; };
 		8293FEAD275C839800BD7D2B /* MemHomePageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8293FEAC275C839800BD7D2B /* MemHomePageView.swift */; };
 		82D767BE2766574C005AE8A7 /* Memory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82D767BD2766574C005AE8A7 /* Memory.swift */; };
+		82D767C1276736CF005AE8A7 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82D767C0276736CF005AE8A7 /* ImagePicker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,7 +48,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		8229F67A27611AE900D17C34 /* ImagePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerView.swift; sourceTree = "<group>"; };
 		82495988275CA40F008AF5E3 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		8249598D275F7FEA008AF5E3 /* CameraService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraService.swift; sourceTree = "<group>"; };
 		8249598F275F9A40008AF5E3 /* PhotoCaptureProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCaptureProcessor.swift; sourceTree = "<group>"; };
@@ -72,6 +71,8 @@
 		8293FEA8275C832500BD7D2B /* SideMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenu.swift; sourceTree = "<group>"; };
 		8293FEAC275C839800BD7D2B /* MemHomePageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemHomePageView.swift; sourceTree = "<group>"; };
 		82D767BD2766574C005AE8A7 /* Memory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Memory.swift; sourceTree = "<group>"; };
+		82D767C0276736CF005AE8A7 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		82D767C2276739AB005AE8A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +141,7 @@
 		8293FE71275C668E00BD7D2B /* UMem */ = {
 			isa = PBXGroup;
 			children = (
+				82D767C2276739AB005AE8A7 /* Info.plist */,
 				82D767BF27665752005AE8A7 /* Model */,
 				82495993275FC17E008AF5E3 /* ViewModel */,
 				8249598A275F7F63008AF5E3 /* Service */,
@@ -188,7 +190,7 @@
 				82495998276092C7008AF5E3 /* CameraCapturingPreview.swift */,
 				8249599A276096C8008AF5E3 /* CameraCapturingView.swift */,
 				8249599C2760CB02008AF5E3 /* PictureResultView.swift */,
-				8229F67A27611AE900D17C34 /* ImagePickerView.swift */,
+				82D767C0276736CF005AE8A7 /* ImagePicker.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -336,7 +338,6 @@
 				8293FE7C275C669100BD7D2B /* Persistence.swift in Sources */,
 				82495992275FB9F7008AF5E3 /* ImageResizer.swift in Sources */,
 				82495989275CA40F008AF5E3 /* HomeView.swift in Sources */,
-				8229F67B27611AE900D17C34 /* ImagePickerView.swift in Sources */,
 				8293FE7F275C669100BD7D2B /* UMem.xcdatamodeld in Sources */,
 				8249599B276096C8008AF5E3 /* CameraCapturingView.swift in Sources */,
 				8293FEA9275C832500BD7D2B /* SideMenu.swift in Sources */,
@@ -345,6 +346,7 @@
 				8293FEAD275C839800BD7D2B /* MemHomePageView.swift in Sources */,
 				8293FE75275C668E00BD7D2B /* ContentView.swift in Sources */,
 				82495995275FC21E008AF5E3 /* PhotoCapturerViewModel.swift in Sources */,
+				82D767C1276736CF005AE8A7 /* ImagePicker.swift in Sources */,
 				8249599D2760CB02008AF5E3 /* PictureResultView.swift in Sources */,
 				8293FE73275C668E00BD7D2B /* UMemApp.swift in Sources */,
 			);
@@ -510,6 +512,7 @@
 				DEVELOPMENT_TEAM = 9KG2KSST7T;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = UMem/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "To capture your beautiful memories";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "to capture sounds of video";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "To store your beautiful memory in your photo library";
@@ -543,6 +546,7 @@
 				DEVELOPMENT_TEAM = 9KG2KSST7T;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = UMem/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "To capture your beautiful memories";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "to capture sounds of video";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "To store your beautiful memory in your photo library";
