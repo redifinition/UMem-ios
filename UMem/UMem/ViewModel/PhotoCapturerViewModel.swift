@@ -91,13 +91,18 @@ class PhotoCapturerViewModel:ObservableObject{
     //获取拍摄的照片到列表
     func getPhotoList() -> [Photo]{
         
-        print(service.photoList.count)
+        //print(service.photoList.count)
         return self.service.photoList
         
     }
     
     func addPhoto(photo: Photo){
         self.service.photoList.append(photo)
+        
+    }
+    
+    func clearPhoto(){
+        self.service.photoList.removeAll()
     }
     
     

@@ -32,6 +32,7 @@ struct PictureResultView: View {
             VStack{
                 ScrollView(.vertical){
                     LazyVGrid(columns: ColumnGrid, spacing:15){
+                        
                         Button(action: {
                             //首先结束相机捕捉
                             self.model.stopCapturing()
@@ -44,30 +45,49 @@ struct PictureResultView: View {
                                 .resizable()
                                 .frame(width: 85,height: 85)
                         }).shadow(color:Color(.sRGB, red: 64/255, green: 64/255, blue: 64/255, opacity: 0.3),radius: 40, x:0,y:20)
-                        ForEach(self.imageListOfLibrary, id: \.self){image in
+                        
+                        
+                        
+                        ForEach(0..<self.imageListOfLibrary.count, id: \.self){ i in
+                            NavigationLink(
+                                destination: PhotoEditor(imageList :$imageListOfLibrary, index: i)
+                                    
+                            ){
+                                
+                                Image(uiImage: self.imageListOfLibrary[i])
+                                .resizable()
+                                .aspectRatio(contentMode: .fill)
+                                .cornerRadius(10)
+                                .scaledToFit()
+                                .frame(width: 85,height: 100)
+                            }
                             
-                            Image(uiImage: image)
-                                .resizable()
-                                .cornerRadius(10)
-                                .scaledToFit()
-                                .frame(width: 85)
                         }
-                        ForEach(self.model.getPhotoList()){photo in
-                            Image(uiImage: photo.image!)
-                                .resizable()
-                                .cornerRadius(10)
-                                .scaledToFit()
-                                .frame(width: 85)
-
-                        }.padding(.horizontal)
-                            .shadow(color:Color(.sRGB, red: 64/255, green: 64/255, blue: 64/255, opacity: 0.3),radius: 40, x:0,y:20)
+//                        ForEach(0..<self.model.getPhotoList().count, id: \.self){i in
+//                            NavigationLink(
+//                                destination: PhotoEditor(imageList :$model.getPhotoList(), index: i)
+//                                    .preferredColorScheme(.dark)
+//
+//                            ){
+//                                Image(uiImage: self.model.getPhotoList()[i].image!)
+//                                .resizable()
+//                                .aspectRatio(contentMode: .fit)
+//                                .cornerRadius(10)
+//                                .scaledToFit()
+//                                .frame(width: 85)
+//                            }
+//
+//                        }.padding(.horizontal)
+//                            .shadow(color:Color(.sRGB, red: 64/255, green: 64/255, blue: 64/255, opacity: 0.3),radius: 40, x:0,y:20)
                         
                     }.padding()
                 }
+                
                 .sheet(isPresented: $isShowPhotoLibray) {
                     ImagePicker(sourceType: self.capturingType, selectedImageList: self.$imageListOfLibrary)
                         .environmentObject(model)
                 }
+
         .actionSheet(isPresented: $isShowChoosingSheet) { () -> ActionSheet in
             ActionSheet(title: Text("Choose mode"), message: Text("Please choose one mode to add your memory photos"), buttons: [ActionSheet.Button.default(Text("Use Camera!"), action: {
                 self.isShowChoosingSheet = false
@@ -83,10 +103,21 @@ struct PictureResultView: View {
             }), ActionSheet.Button.cancel()])
         }
             }
+            .onAppear(perform:{
+                let photoList = self.model.getPhotoList()
+                
+                    photoList.forEach{(image)in
+                imageListOfLibrary.append(image.image!)
+                    }
+                self.model.clearPhoto()
+                
+            }
+            )
                        
                        
                        
     }
+        
 }
     
     
