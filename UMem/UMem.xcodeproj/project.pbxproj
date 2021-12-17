@@ -31,6 +31,7 @@
 		82D767C42768BD40005AE8A7 /* PhotoEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82D767C32768BD40005AE8A7 /* PhotoEditor.swift */; };
 		82D767C6276B4AB9005AE8A7 /* ImageFilterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82D767C5276B4AB8005AE8A7 /* ImageFilterViewModel.swift */; };
 		82D767C8276B4DFB005AE8A7 /* FilteredImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82D767C7276B4DFB005AE8A7 /* FilteredImage.swift */; };
+		82D767CA276C7E2E005AE8A7 /* test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82D767C9276C7E2E005AE8A7 /* test.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +80,7 @@
 		82D767C32768BD40005AE8A7 /* PhotoEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoEditor.swift; sourceTree = "<group>"; };
 		82D767C5276B4AB8005AE8A7 /* ImageFilterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageFilterViewModel.swift; sourceTree = "<group>"; };
 		82D767C7276B4DFB005AE8A7 /* FilteredImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilteredImage.swift; sourceTree = "<group>"; };
+		82D767C9276C7E2E005AE8A7 /* test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = test.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -199,6 +201,7 @@
 				8249599C2760CB02008AF5E3 /* PictureResultView.swift */,
 				82D767C0276736CF005AE8A7 /* ImagePicker.swift */,
 				82D767C32768BD40005AE8A7 /* PhotoEditor.swift */,
+				82D767C9276C7E2E005AE8A7 /* test.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -355,6 +358,7 @@
 				82495999276092C7008AF5E3 /* CameraCapturingPreview.swift in Sources */,
 				82D767C42768BD40005AE8A7 /* PhotoEditor.swift in Sources */,
 				8293FEAD275C839800BD7D2B /* MemHomePageView.swift in Sources */,
+				82D767CA276C7E2E005AE8A7 /* test.swift in Sources */,
 				8293FE75275C668E00BD7D2B /* ContentView.swift in Sources */,
 				82495995275FC21E008AF5E3 /* PhotoCapturerViewModel.swift in Sources */,
 				82D767C1276736CF005AE8A7 /* ImagePicker.swift in Sources */,

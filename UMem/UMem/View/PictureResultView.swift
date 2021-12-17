@@ -25,12 +25,17 @@ struct PictureResultView: View {
     
     @State var isShowPhotoLibray = false
     
+    @StateObject var titleManager = LimitManager()
+    
+    //动画
+    @State var titleIsTapped  = false
+    
     private var ColumnGrid = [GridItem(.flexible()),GridItem(.flexible()),GridItem(.flexible()),GridItem(.flexible())]
     
 
     
     var body: some View {
-            VStack{
+        VStack{
                 ScrollView(.vertical){
                     LazyVGrid(columns: ColumnGrid, spacing:15){
                         
@@ -52,9 +57,9 @@ struct PictureResultView: View {
                         ForEach(0..<self.imageListOfLibrary.count, id: \.self){ i in
                             NavigationLink(
                                 destination: PhotoEditor(imageList :$imageListOfLibrary, isEditored: $isEditored, index: i)
-                                    
+
                             ){
-                                
+
                                 Image(uiImage: self.imageListOfLibrary[i])
                                 .resizable()
                                 .aspectRatio(contentMode: .fill)
@@ -62,33 +67,84 @@ struct PictureResultView: View {
                                 .scaledToFit()
                                 .frame(width: 85,height: 100)
                             }
-                            
+
                         }
-//                        ForEach(0..<self.model.getPhotoList().count, id: \.self){i in
-//                            NavigationLink(
-//                                destination: PhotoEditor(imageList :$model.getPhotoList(), index: i)
-//                                    .preferredColorScheme(.dark)
-//
-//                            ){
-//                                Image(uiImage: self.model.getPhotoList()[i].image!)
-//                                .resizable()
-//                                .aspectRatio(contentMode: .fit)
-//                                .cornerRadius(10)
-//                                .scaledToFit()
-//                                .frame(width: 85)
-//                            }
-//
-//                        }.padding(.horizontal)
-//                            .shadow(color:Color(.sRGB, red: 64/255, green: 64/255, blue: 64/255, opacity: 0.3),radius: 40, x:0,y:20)
+                        
+
                         
                     }.padding()
                 }
+                .frame(height: 200)
                 
                 .sheet(isPresented: $isShowPhotoLibray) {
                     ImagePicker(sourceType: self.capturingType, selectedImageList: self.$imageListOfLibrary,
                                 isEditored: self.$isEditored)
                         .environmentObject(model)
                 }
+                
+            VStack{
+                HStack{
+                    Image(systemName: "newspaper")
+            VStack(alignment: .leading, spacing: 5, content:{
+                HStack(spacing: 15){
+                    //输入回忆的标题
+                    TextField("",text: $titleManager.titleOfMemory){(status) in
+                            if status{
+                                withAnimation(.easeIn){
+                                    titleIsTapped = true
+                                }
+                            }
+                        } onCommit: {
+                            //当没有文本输入时
+                            if titleManager.titleOfMemory == ""{
+                            withAnimation(.easeOut){
+                                titleIsTapped = false
+                            }
+                            }
+                        }
+                }
+                //被点击时
+                .padding(.top, titleIsTapped ? 15 : 0)
+                .background(
+                    Text("Your Memory Title")
+                        .scaleEffect(titleIsTapped ? 0.8 : 1)
+                        .offset(x: titleIsTapped ? -15 : 0, y:  titleIsTapped ? -15 : 0)
+                        .foregroundColor(titleIsTapped ? .accentColor : .gray)
+                    
+                    ,alignment: .leading
+                )
+                .padding(.horizontal)
+                
+                //分割框
+                Rectangle()
+                    .fill(titleIsTapped ? Color.accentColor : Color.gray)
+                    .opacity(titleIsTapped ? 1 : 0.5)
+                    .frame(height : 1)
+                    .padding(.top, 10)
+
+            })
+                .padding(.top,12)
+                .background(Color.gray.opacity(0.09))
+                .cornerRadius(5)
+                }
+                
+                //展示输入字符的个数
+                HStack{
+                    Spacer()
+                    Text("\(titleManager.titleOfMemory.count)/15")
+                        .font(.caption)
+                        .foregroundColor(.gray)
+                        .padding(.trailing)
+                        .padding(.top , 4)
+                }
+
+            }
+            .padding()
+            
+            Spacer()
+                
+                
+                
 
         .actionSheet(isPresented: $isShowChoosingSheet) { () -> ActionSheet in
             ActionSheet(title: Text("Choose mode"), message: Text("Please choose one mode to add your memory photos"), buttons: [ActionSheet.Button.default(Text("Use Camera!"), action: {
@@ -132,5 +188,16 @@ struct PictureResultView: View {
 struct PictureResultView_Previews: PreviewProvider {
     static var previews: some View {
         PictureResultView()
+    }
+}
+
+class LimitManager: ObservableObject{
+    @Published var titleOfMemory = ""{
+        // use didSet function
+        didSet{
+            if titleOfMemory.count > 15 && oldValue.count <= 15{
+                self.titleOfMemory = oldValue
+            }
+        }
     }
 }

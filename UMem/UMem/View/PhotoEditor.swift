@@ -39,7 +39,13 @@ struct PhotoEditor: View {
                 
                 ScrollView(.horizontal, showsIndicators: false){
                     HStack(spacing: 20){
-                    
+                        Image(uiImage: imageList[index])
+                            .resizable()
+                            .aspectRatio(contentMode: .fill)
+                            .frame(width: 150, height: 150)
+                            .onTapGesture {
+                                coreImageData.mainImage.image = imageList[index]
+                            }
                     ForEach(coreImageData.filteredImageList){filtered in
                         
                         Image(uiImage: filtered.image)
@@ -93,6 +99,8 @@ struct PhotoEditor: View {
             //先清除原先的照片
             coreImageData.filteredImageList.removeAll()
             coreImageData.loadFilter()
+            coreImageData.detectFaces()
+            
             
             
         })
