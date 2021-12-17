@@ -12,4 +12,5 @@ struct FilteredImage:Identifiable{
     var id = UUID().uuidString
     var image: UIImage
     var filter: CIFilter
+    var isEditable: Bool
 }

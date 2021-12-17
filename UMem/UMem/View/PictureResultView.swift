@@ -15,6 +15,7 @@ struct PictureResultView: View {
     
     @State private var imageListOfLibrary :[UIImage] = []
 
+    @State var isEditored:[Bool] = []
     
     //照片库选择框
     @State var isShowChoosingSheet = false
@@ -50,7 +51,7 @@ struct PictureResultView: View {
                         
                         ForEach(0..<self.imageListOfLibrary.count, id: \.self){ i in
                             NavigationLink(
-                                destination: PhotoEditor(imageList :$imageListOfLibrary, index: i)
+                                destination: PhotoEditor(imageList :$imageListOfLibrary, isEditored: $isEditored, index: i)
                                     
                             ){
                                 
@@ -84,7 +85,8 @@ struct PictureResultView: View {
                 }
                 
                 .sheet(isPresented: $isShowPhotoLibray) {
-                    ImagePicker(sourceType: self.capturingType, selectedImageList: self.$imageListOfLibrary)
+                    ImagePicker(sourceType: self.capturingType, selectedImageList: self.$imageListOfLibrary,
+                                isEditored: self.$isEditored)
                         .environmentObject(model)
                 }
 
@@ -109,6 +111,10 @@ struct PictureResultView: View {
                     photoList.forEach{(image)in
                 imageListOfLibrary.append(image.image!)
                     }
+                
+                for _ in photoList{
+                    self.isEditored.append(false)
+                }
                 self.model.clearPhoto()
                 
             }

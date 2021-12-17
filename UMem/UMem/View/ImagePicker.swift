@@ -17,6 +17,8 @@ struct ImagePicker: UIViewControllerRepresentable {
     
     @Binding var selectedImageList: [UIImage]
     
+    @Binding var isEditored: [Bool]
+    
     @Environment(\.presentationMode) private var presentationMode
     
     @EnvironmentObject var model:PhotoCapturerViewModel
@@ -54,6 +56,7 @@ struct ImagePicker: UIViewControllerRepresentable {
             
             if let photo = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
                     self.parent.selectedImageList.append(photo)
+                self.parent.isEditored.append(false)
                 
             }
             
