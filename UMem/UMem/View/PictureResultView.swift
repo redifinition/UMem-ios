@@ -30,11 +30,16 @@ struct PictureResultView: View {
     //动画
     @State var titleIsTapped  = false
     
+    //选择的日期
+    @State var memoryDate = Date()
+    
+    
     private var ColumnGrid = [GridItem(.flexible()),GridItem(.flexible()),GridItem(.flexible()),GridItem(.flexible())]
     
 
     
     var body: some View {
+        ScrollView{
         VStack{
                 ScrollView(.vertical){
                     LazyVGrid(columns: ColumnGrid, spacing:15){
@@ -102,6 +107,7 @@ struct PictureResultView: View {
                             }
                             }
                         }
+                        .foregroundColor(titleManager.isOvering ? .red : .gray)
                 }
                 //被点击时
                 .padding(.top, titleIsTapped ? 15 : 0)
@@ -137,6 +143,51 @@ struct PictureResultView: View {
                         .padding(.trailing)
                         .padding(.top , 4)
                 }
+                
+                
+                HStack{
+                Image(systemName: "calendar")
+                HStack{
+
+                    DatePicker("Select the date!", selection: $memoryDate, in: ...Date(), displayedComponents: [.date])
+                        .accentColor(Color.gray)
+                        .datePickerStyle(
+                            CompactDatePickerStyle()
+                        )
+                }.padding(8)
+                        .background(Color.gray.opacity(0.09))
+                        .cornerRadius(5)
+                }.padding(.vertical,5)
+                
+                
+                //输入回忆文本
+
+                    VStack{
+                        HStack{
+                            Image(systemName: "wallet.pass")
+                            Spacer()
+                            Button(action: {
+                                self.endEditing()
+                            }, label: {
+                                Image(systemName: "checkmark.icloud")
+                            })
+                        }.padding(.vertical,5)
+                        TextEditor(text: $titleManager.MemoryText)
+                            .frame(height: 250)
+                            .foregroundColor(titleManager.contentIsOvering ? .red : .gray)
+                            .colorMultiply(Color(.sRGB, red: 245/255, green: 245/255, blue: 245/255))
+                            .cornerRadius(10)
+                    }
+                //展示输入字符的个数
+                HStack{
+                    Spacer()
+                    Text("\(titleManager.MemoryText.count)/5000")
+                        .font(.caption)
+                        .foregroundColor(.gray)
+                        .padding(.trailing)
+                        .padding(.top , 4)
+                }
+
 
             }
             .padding()
@@ -161,6 +212,7 @@ struct PictureResultView: View {
             }), ActionSheet.Button.cancel()])
         }
             }
+        }
             .onAppear(perform:{
                 let photoList = self.model.getPhotoList()
                 
@@ -192,12 +244,40 @@ struct PictureResultView_Previews: PreviewProvider {
 }
 
 class LimitManager: ObservableObject{
+    
+    @Published var isOvering = false
+    
+    @Published var contentIsOvering = false
+    
     @Published var titleOfMemory = ""{
         // use didSet function
         didSet{
             if titleOfMemory.count > 15 && oldValue.count <= 15{
                 self.titleOfMemory = oldValue
+                isOvering = true
+            }
+            else{
+                isOvering = false
             }
         }
+    }
+    
+    @Published var MemoryText = "Record my memory!"{
+        // use didSet function
+        didSet{
+            if MemoryText.count > 5000 && oldValue.count <= 5000{
+                MemoryText  = oldValue
+                contentIsOvering = true
+            }
+            else{
+                contentIsOvering = false
+            }
+        }
+    }
+}
+
+extension View {
+    func endEditing() {
+        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
     }
 }
