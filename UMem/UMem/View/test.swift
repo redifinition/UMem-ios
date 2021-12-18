@@ -12,9 +12,18 @@ struct test: View {
     
     @State var memoryDate = Date()
     
-    
+    @State var moodImageSet = ["mood0","mood1","mood2","mood3","mood4","mood5","mood6","mood7"]
     //动画
     @State var titleIsTapped  = false
+    
+    @State var moodSheetIsPresented = false
+    
+    //选择的心情
+    @State var mood = 0
+    
+    let moodNameSet = ["unchoosed","Sad", "Happy", "Hopeful", "Exciting", "Frightened", "Vigorous", "Playful"]
+    
+    private var ColumnGrid = [GridItem(.flexible()),GridItem(.flexible())]
     
     var body: some View {
         VStack{
@@ -123,6 +132,78 @@ struct test: View {
                     .padding(.trailing)
                     .padding(.top , 4)
             }
+            
+            //选择当前心情
+            HStack{
+                Image(systemName: "face.smiling")
+                Text("Choose your mood now!")
+                    .fontWeight(.medium)
+                Spacer()
+                Text("mood:")
+                    .foregroundColor(.gray)
+                Image(moodImageSet[mood])
+                    .frame(width: 40, height: 40)
+                Text(self.moodNameSet[mood])
+                    .font(.caption)
+                Button(action: {
+                    self.moodSheetIsPresented.toggle()
+                }, label: {
+                    Image(systemName: "pencil.circle")
+                })
+                
+            }.sheet(isPresented: $moodSheetIsPresented){
+                Text("Choose Your Mood Now!")
+                    .font(.title2)
+                    .fontWeight(.bold)
+                    .padding()
+                LazyVGrid(columns: ColumnGrid, spacing:8){
+                ForEach(1..<self.moodImageSet.count, id: \.self){index in
+                    ZStack{
+                        Rectangle()
+                            .padding(.horizontal,5)
+                            .foregroundColor(.gray.opacity(0.09))
+                            .cornerRadius(20)
+
+                    VStack{
+                        Button(action: {
+                            self.moodSheetIsPresented.toggle()
+                            self.mood = index
+                        }, label: {
+                            Image(self.moodImageSet[index])
+                                .resizable()
+                                .aspectRatio(contentMode: .fill)
+                                .frame(width: 50, height: 50)
+                        })
+                    
+                        Text(self.moodNameSet[index])
+                            .foregroundColor(.black)
+                            .fontWeight(.bold)
+                    }
+                    }
+                }
+                .shadow(color: Color(.sRGB, red: 64/255, green: 64/255, blue: 64/255, opacity: 0.3), radius: 40, x:0,y:20)
+                }.padding()
+                HStack{
+                Text("Tips:")
+                    .font(.title2)
+                    .fontWeight(.medium)
+                    .padding()
+                    .foregroundColor(.gray)
+                Spacer()
+                }
+                Text("Choose the mood of the memories you want to store! Choose the one that best represents your mood at the time!")
+                    .font(.title3)
+                    .fontWeight(.medium)
+                    .padding()
+                    .foregroundColor(.gray)
+            
+
+
+                
+                Spacer()
+                
+            }
+            
 
         }
         .padding()
@@ -168,6 +249,9 @@ class TextLimitManager: ObservableObject{
         }
     }
 }
+
+
+
 
 
 
