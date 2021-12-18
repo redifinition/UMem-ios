@@ -159,6 +159,13 @@ struct PictureResultView: View {
                 }
                 
                 
+                //分割框
+                Rectangle()
+                    .fill(Color.gray)
+                    .opacity(0.5)
+                    .frame(height : 1)
+                    .padding(.top, 10)
+                
                 HStack{
                 Image(systemName: "calendar")
                 HStack{
@@ -173,6 +180,12 @@ struct PictureResultView: View {
                         .cornerRadius(5)
                 }.padding(.vertical,5)
                 
+                //分割框
+                Rectangle()
+                    .fill(Color.gray)
+                    .opacity(0.5)
+                    .frame(height : 1)
+                    .padding(.top, 10)
                 
                 //输入回忆文本
 
@@ -201,6 +214,15 @@ struct PictureResultView: View {
                         .padding(.trailing)
                         .padding(.top , 4)
                 }
+                
+                
+                //分割框
+                Rectangle()
+                    .fill(Color.gray)
+                    .opacity(0.5)
+                    .frame(height : 1)
+                    .padding(.top, 10)
+                
                 
                 //选择当前心情
                 HStack{
