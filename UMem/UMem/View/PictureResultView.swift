@@ -47,6 +47,19 @@ struct PictureResultView: View {
     @State var moodImageSet = ["mood0","mood1","mood2","mood3","mood4","mood5","mood6","mood7"]
     
     
+    // 选择的内容标签tag
+    @State var tag = 0
+    
+    let tagImageList = ["tag0","tag1","tag2","tag3","tag4","tag5","tag6","tag7","tag8","tag9","tag10"]
+    //被选择的标签数组
+    @State var choosedTagList:Set = [0]
+
+    let tagNameList = ["none", "Family", "Love", "Sport", "Study", "Travel", "Diary", "Record", "Important", "Social", "Birthday" ]
+    
+    @State var tagSheetIsPresented = false
+    
+    private var ColumnGridOfTag = [GridItem(.flexible()),GridItem(.flexible())]
+    
     
     private var ColumnGrid = [GridItem(.flexible()),GridItem(.flexible()),GridItem(.flexible()),GridItem(.flexible())]
     
@@ -294,7 +307,89 @@ struct PictureResultView: View {
                     Spacer()
                     
                 }
+                
+                Group{
+                //选择当前的memory标签
+                HStack{
+                    Image(systemName: "dial.max.fill")
+                    Text("Choose your memory tag!")
+                        .fontWeight(.medium)
+                    Spacer()
+                    LazyVGrid(columns: [GridItem(.flexible()),GridItem(.flexible()),GridItem(.flexible())], spacing:8){
+                        ForEach(self.choosedTagList.sorted(), id:\.self){tag in
+                            Image(tagImageList[tag])
+                                .frame(width: 40, height: 40)
+                        }
+                    }
+                    Button(action: {
+                        self.tagSheetIsPresented.toggle()
+                    }, label: {
+                        Image(systemName: "pencil.circle")
+                    })
+                    
+                }.sheet(isPresented: $tagSheetIsPresented){
+                    Text("Choose Your Tag Now!")
+                        .font(.title2)
+                        .fontWeight(.bold)
+                        .padding()
+                    LazyVGrid(columns: ColumnGridOfTag, spacing:8){
+                    ForEach(1..<self.tagImageList.count, id: \.self){index in
+                        ZStack{
+                            Rectangle()
+                                .padding(.horizontal,5)
+                                .foregroundColor(.gray.opacity(0.09))
+                                .cornerRadius(20)
 
+                        VStack{
+                            Button(action: {
+                                self.tagSheetIsPresented.toggle()
+                                self.choosedTagList.insert(index)
+                            }, label: {
+                                Image(self.tagImageList[index])
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fill)
+                                    .frame(width: 50, height: 50)
+                            })
+                        
+                            Text(self.tagNameList[index])
+                                .foregroundColor(.black)
+                                .fontWeight(.bold)
+                        }
+                        }
+                    }
+                    .shadow(color: Color(.sRGB, red: 64/255, green: 64/255, blue: 64/255, opacity: 0.3), radius: 40, x:0,y:20)
+                    }.padding(.horizontal)
+                    HStack{
+                    Text("Tips:")
+                        .font(.title2)
+                        .fontWeight(.medium)
+                        .padding(.horizontal)
+                        .foregroundColor(.gray)
+                    Spacer()
+                    }
+                    Text("Choose the label that the memory belongs to! You can add multiple tags to memories! You can better organize your own memories when viewing your memories!")
+                        .font(.body)
+                        .fontWeight(.medium)
+                        .padding(.horizontal)
+                        .foregroundColor(.gray)
+                
+
+
+                    
+                    Spacer()
+                    
+                }
+                
+                    HStack{
+                Spacer()
+                NavigationLink(destination: {
+                    MemHomePage()
+                }, label: {
+                    Image("complete")
+                })
+                    }
+                }
+                
 
             }
             .padding()

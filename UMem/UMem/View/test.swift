@@ -29,17 +29,19 @@ struct test: View {
     
     let tagImageList = ["tag0","tag1","tag2","tag3","tag4","tag5","tag6","tag7","tag8","tag9","tag10"]
     //被选择的标签数组
-    @State var choosedTagList = [0]
+    @State var choosedTagList:Set = [0]
 
-    let tagNameList = ["none", "Family", "Love", "Sport", "Study", "Travel", "Birthday", "Social", "Important", "Record", "Diary" ]
+    let tagNameList = ["none", "Family", "Love", "Sport", "Study", "Travel", "Diary", "Record", "Important", "Social", "Birthday" ]
     
-    @State tagSheetIsPresented = true
+    @State var tagSheetIsPresented = false
     
     private var ColumnGridOfTag = [GridItem(.flexible()),GridItem(.flexible())]
     
     private var ColumnGrid = [GridItem(.flexible()),GridItem(.flexible())]
     
+    
     var body: some View {
+        Group{
         VStack{
             HStack{
                 Image(systemName: "newspaper")
@@ -235,23 +237,25 @@ struct test: View {
                 Text("Choose your memory tag!")
                     .fontWeight(.medium)
                 Spacer()
-                ForEach(0..<self.choosedTagList.count, id:\.self){i in
-                    Image(tagImageList[choosedTagList[i]])
-                        .frame(width: 40, height: 40)
+                LazyVGrid(columns: [GridItem(.flexible()),GridItem(.flexible()),GridItem(.flexible())], spacing:8){
+                    ForEach(self.choosedTagList.sorted(), id:\.self){tag in
+                        Image(tagImageList[tag])
+                            .frame(width: 40, height: 40)
+                    }
                 }
                 Button(action: {
-                    self.moodSheetIsPresented.toggle()
+                    self.tagSheetIsPresented.toggle()
                 }, label: {
                     Image(systemName: "pencil.circle")
                 })
                 
-            }.sheet(isPresented: $moodSheetIsPresented){
-                Text("Choose Your Mood Now!")
+            }.sheet(isPresented: $tagSheetIsPresented){
+                Text("Choose Your Tag Now!")
                     .font(.title2)
                     .fontWeight(.bold)
                     .padding()
-                LazyVGrid(columns: ColumnGrid, spacing:8){
-                ForEach(1..<self.moodImageSet.count, id: \.self){index in
+                LazyVGrid(columns: ColumnGridOfTag, spacing:8){
+                ForEach(1..<self.tagImageList.count, id: \.self){index in
                     ZStack{
                         Rectangle()
                             .padding(.horizontal,5)
@@ -260,35 +264,35 @@ struct test: View {
 
                     VStack{
                         Button(action: {
-                            self.moodSheetIsPresented.toggle()
-                            self.mood = index
+                            self.tagSheetIsPresented.toggle()
+                            self.choosedTagList.insert(index)
                         }, label: {
-                            Image(self.moodImageSet[index])
+                            Image(self.tagImageList[index])
                                 .resizable()
                                 .aspectRatio(contentMode: .fill)
                                 .frame(width: 50, height: 50)
                         })
                     
-                        Text(self.moodNameSet[index])
+                        Text(self.tagNameList[index])
                             .foregroundColor(.black)
                             .fontWeight(.bold)
                     }
                     }
                 }
                 .shadow(color: Color(.sRGB, red: 64/255, green: 64/255, blue: 64/255, opacity: 0.3), radius: 40, x:0,y:20)
-                }.padding()
+                }.padding(.horizontal)
                 HStack{
                 Text("Tips:")
                     .font(.title2)
                     .fontWeight(.medium)
-                    .padding()
+                    .padding(.horizontal)
                     .foregroundColor(.gray)
                 Spacer()
                 }
-                Text("Choose the mood of the memories you want to store! Choose the one that best represents your mood at the time!")
-                    .font(.title3)
+                Text("Choose the label that the memory belongs to! You can add multiple tags to memories! You can better organize your own memories when viewing your memories!")
+                    .font(.body)
                     .fontWeight(.medium)
-                    .padding()
+                    .padding(.horizontal)
                     .foregroundColor(.gray)
             
 
@@ -297,10 +301,37 @@ struct test: View {
                 Spacer()
                 
             }
+            Group{
+            //分割框
+            Rectangle()
+                .fill(Color.gray)
+                .opacity(0.5)
+                .frame(height : 1)
+                .padding(.top, 10)
+                HStack{
+                    Spacer()
+            NavigationLink(destination: {
+                MemHomePage()
+            }, label: {
+                Image("complete")
+            })
+                }
+
+//            NavigationLink(destination: {
+//                CameraCapturingView()
+//            }, label: {
+//                Image("StartButton")
+//                    .resizable()
+//                    .aspectRatio( contentMode: .fit)
+//                    .frame(width: 60, height: 60)
+//            })
+                
+            }
             
 
         }
         .padding()
+        }
     }
 }
 
