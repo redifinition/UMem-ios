@@ -310,11 +310,17 @@ struct test: View {
                 .padding(.top, 10)
                 HStack{
                     Spacer()
-            NavigationLink(destination: {
-                MemHomePage()
-            }, label: {
-                Image("complete")
-            })
+//            NavigationLink(destination: {
+//                MemHomePage()
+//            }, label: {
+//                Image("complete")
+//            })
+                    //点击按钮上传回忆内容
+                    Button(action: {
+                        //wpostMemoryData()
+                    }, label: {
+                        Image("complete")
+                    })
                 }
 
 //            NavigationLink(destination: {
@@ -374,6 +380,7 @@ class TextLimitManager: ObservableObject{
         }
     }
 }
+
 
 
 

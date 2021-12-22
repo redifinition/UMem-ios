@@ -382,11 +382,11 @@ struct PictureResultView: View {
                 
                     HStack{
                 Spacer()
-                NavigationLink(destination: {
-                    MemHomePage()
-                }, label: {
-                    Image("complete")
-                })
+                        Button(action: {
+                            postMemoryData(imageList: self.imageListOfLibrary, memoryDate: self.memoryDate, mood: self.mood, choosedTagList: Array(self.choosedTagList), memoryTitle: self.titleManager.titleOfMemory, memoryContent: self.titleManager.MemoryText)
+                        }, label: {
+                            Image("complete")
+                        })
                     }
                 }
                 
@@ -487,3 +487,105 @@ extension View {
 
 
 
+//调用post api
+func postMemoryData(imageList: [UIImage], memoryDate: Date, mood: Int, choosedTagList: [Int], memoryTitle: String, memoryContent: String){
+    
+    struct MemoryData: Codable{
+        var photoDataList : [String]
+        var memoryTitle : String
+        var memoryContent : String
+        var mood : Int
+        var tagList : [Int]
+        var memoryDate : String
+    }
+    //首先需要将imageList逐个转换为base64data
+    var imageBase64Data = uiimageToBase64Data(uiImageList: imageList)
+    
+    //将date转换为字符串
+    let dataFormater = DateFormatter()
+    dataFormater.dateFormat = "YYYY-MM-dd"
+    var memoryDateStr = dataFormater.string(from: memoryDate)
+    
+    
+    
+    let url = URL(string: "http://47.102.195.143:8080/memory/infor/posting")
+    guard let requestUrl = url else { fatalError() }
+
+    var request = URLRequest(url: requestUrl)
+    request.httpMethod = "POST"
+
+    // Set HTTP Request Header
+    request.setValue("application/json", forHTTPHeaderField: "Accept")
+    request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+
+    let newTodoItem = MemoryData(photoDataList: imageBase64Data, memoryTitle: memoryTitle, memoryContent: memoryContent, mood: mood, tagList: choosedTagList, memoryDate: memoryDateStr)
+    
+    let jsonData = try! JSONEncoder().encode(newTodoItem)
+
+    request.httpBody = jsonData
+
+        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+            
+            if let error = error {
+                print("Error took place \(error)")
+                return
+            }
+            guard let data = data else {return}
+
+            do{
+                print(response  as Any)
+
+            }catch let jsonErr{
+                print(jsonErr)
+           }
+
+     
+    }
+    task.resume()
+
+    
+}
+
+//将uiimage转化为base64字符串
+func uiimageToBase64Data(uiImageList: [UIImage]) -> [String]{
+    var base64List:[String] = []
+    for uiimage in uiImageList{
+        let uiimage = compressImage(image: uiimage)//上传一般图片
+        //uiimage.jpegData(compressionQuality: 1)//上传高清图片
+        let imageStringData = "data:image/png;base64," + convertImageToBase64(image: uiimage)
+        base64List.append(imageStringData)
+    }
+//    let imageData = image.jpegData(compressionQuality: 1)
+//    return imageData?.base64EncodedString(options:
+//    Data.Base64EncodingOptions.lineLength64Characters)
+    return base64List
+    
+}
+
+
+
+func convertImageToBase64(image: UIImage) -> String {
+    let imageData = image.pngData()!
+    return imageData.base64EncodedString(options: Data.Base64EncodingOptions.lineLength64Characters)
+}
+
+
+extension UIImage {
+    func aspectFittedToHeight(_ newHeight: CGFloat) -> UIImage {
+        let scale = newHeight / self.size.height
+        let newWidth = self.size.width * scale
+        let newSize = CGSize(width: newWidth, height: newHeight)
+        let renderer = UIGraphicsImageRenderer(size: newSize)
+
+        return renderer.image { _ in
+            self.draw(in: CGRect(origin: .zero, size: newSize))
+        }
+    }
+}
+
+
+func compressImage(image: UIImage) -> UIImage {
+        let resizedImage = image.aspectFittedToHeight(200)
+    resizedImage.jpegData(compressionQuality: 1) // Add this line
+        return resizedImage
+}
