@@ -37,6 +37,7 @@ struct PictureResultView: View {
     
     @State var moodSheetIsPresented = false
     
+    
     //选择的心情
     @State var mood = 0
     
@@ -63,7 +64,14 @@ struct PictureResultView: View {
     
     private var ColumnGrid = [GridItem(.flexible()),GridItem(.flexible()),GridItem(.flexible()),GridItem(.flexible())]
     
-
+    //是否正在上传回忆
+    @State var isUploading = false
+    
+    @State var isSuccess = false
+    
+    @State var shouldShowResult = false
+    
+    @State var showMenu = false
     
     var body: some View {
         ScrollView{
@@ -383,19 +391,79 @@ struct PictureResultView: View {
                     HStack{
                 Spacer()
                         Button(action: {
-                            postMemoryData(imageList: self.imageListOfLibrary, memoryDate: self.memoryDate, mood: self.mood, choosedTagList: Array(self.choosedTagList), memoryTitle: self.titleManager.titleOfMemory, memoryContent: self.titleManager.MemoryText)
+                            isUploading = true
+                            postMemoryData(imageList: self.imageListOfLibrary, memoryDate: self.memoryDate, mood: self.mood, choosedTagList: Array(self.choosedTagList), memoryTitle: self.titleManager.titleOfMemory, memoryContent: self.titleManager.MemoryText){response in
+                                if response == 200{
+                                    isSuccess = true
+                                }
+                                else{
+                                    isSuccess = false
+                                }
+                                isUploading = false
+                                shouldShowResult = true
+                            }
+                                
                         }, label: {
+                            if isUploading{
+                                ProgressView()
+                            }
                             Image("complete")
                         })
-                    }
-                }
-                
+                    }.sheet(isPresented: $shouldShowResult){
+                        VStack{
+                            if isSuccess == true{
+                                VStack{
+                                Text("You have successfully create one memory!")
+                                        .font(.title2)
+                                        .fontWeight(.bold)
+                                        .padding(.vertical, 20)
 
-            }
+                                Image("successPhoto")
+                                    NavigationLink(destination: {
+                                        MemoryList()
+                                    }, label: {
+//                                            Rectangle()
+//                                                .shadow(color: Color(.sRGB, red: 64/255, green: 64/255, blue: 64/255, opacity: 0.3), radius: 40, x:0,y:20)
+//                                                .frame(height:50)
+//                                                .foregroundColor(Color.gray.opacity(0.2))
+//                                                .cornerRadius(10)
+                                        Text("Go to see my memory!")
+                                            .font(.title3)
+                                            .fontWeight(.medium)
+
+
+                                    })
+                                        .padding()
+                                    NavigationLink(destination: {
+                                        HomeView(showMenu: $showMenu)
+                                    }, label: {
+                                                    Text("Continue to create memory!")
+                                                        .font(.title3)
+                                                        .fontWeight(.medium)
+
+                                    })
+                                        .padding()
+                                }.padding()
+                                Spacer()
+                        }
+                            else{
+                                VStack{
+                                Text("Upload fails! Please check your information and try again!")
+                                        .font(.title2)
+                                        .fontWeight(.bold)
+                                        .padding(.vertical, 20)
+                                        
+                                Image("failurePhoto")
+                                        .padding()
+                                }.padding()
+                                Spacer()
+                            }
+                        }
+                    }
+
+                }
             .padding()
-            
-            Spacer()
-                
+            //Spacer()
                 
                 
 
@@ -415,6 +483,7 @@ struct PictureResultView: View {
         }
             }
         }
+        .padding(.horizontal)
             .onAppear(perform:{
                 let photoList = self.model.getPhotoList()
                 
@@ -429,11 +498,15 @@ struct PictureResultView: View {
                 
             }
             )
+//            .onDisappear(perform: {
+//                self.shouldShowResult.toggle()
+//            })
                        
                        
                        
     }
         
+}
 }
     
     
@@ -488,7 +561,7 @@ extension View {
 
 
 //调用post api
-func postMemoryData(imageList: [UIImage], memoryDate: Date, mood: Int, choosedTagList: [Int], memoryTitle: String, memoryContent: String){
+func postMemoryData(imageList: [UIImage], memoryDate: Date, mood: Int, choosedTagList: [Int], memoryTitle: String, memoryContent: String, completion:@escaping(Int)->()){
     
     struct MemoryData: Codable{
         var photoDataList : [String]
@@ -517,11 +590,13 @@ func postMemoryData(imageList: [UIImage], memoryDate: Date, mood: Int, choosedTa
     // Set HTTP Request Header
     request.setValue("application/json", forHTTPHeaderField: "Accept")
     request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-
-    let newTodoItem = MemoryData(photoDataList: imageBase64Data, memoryTitle: memoryTitle, memoryContent: memoryContent, mood: mood, tagList: choosedTagList, memoryDate: memoryDateStr)
+    
+    let title = memoryTitle == "" ? "This memory has no title" : memoryTitle
+    let newTodoItem = MemoryData(photoDataList: imageBase64Data, memoryTitle: title, memoryContent: memoryContent, mood: mood, tagList: choosedTagList, memoryDate: memoryDateStr)
     
     let jsonData = try! JSONEncoder().encode(newTodoItem)
-
+    
+    
     request.httpBody = jsonData
 
         let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
@@ -531,10 +606,10 @@ func postMemoryData(imageList: [UIImage], memoryDate: Date, mood: Int, choosedTa
                 return
             }
             guard let data = data else {return}
-
+            let response = response as? HTTPURLResponse
             do{
                 print(response  as Any)
-
+                completion(response!.statusCode)
             }catch let jsonErr{
                 print(jsonErr)
            }
@@ -542,8 +617,6 @@ func postMemoryData(imageList: [UIImage], memoryDate: Date, mood: Int, choosedTa
      
     }
     task.resume()
-
-    
 }
 
 //将uiimage转化为base64字符串

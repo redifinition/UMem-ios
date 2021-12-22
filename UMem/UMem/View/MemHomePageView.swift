@@ -39,7 +39,7 @@ struct MemHomePage: View {
                 VStack(spacing: 0){
                     TabView(selection: $currentTabValue){
                         
-                        Text("View")
+                        MemoryList()
                             .navigationBarTitleDisplayMode(.inline)
                             .navigationBarHidden(true)
                             .tag("View")

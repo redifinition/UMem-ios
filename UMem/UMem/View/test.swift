@@ -39,6 +39,10 @@ struct test: View {
     
     private var ColumnGrid = [GridItem(.flexible()),GridItem(.flexible())]
     
+    //是否正在上传回忆
+    @State var isUploading = true
+    
+    @State var showMenu = false
     
     var body: some View {
         Group{
@@ -319,8 +323,59 @@ struct test: View {
                     Button(action: {
                         //wpostMemoryData()
                     }, label: {
-                        Image("complete")
+                        if isUploading{
+                                    ProgressView()
+                        }
+                            Image("complete")
                     })
+                }.sheet(isPresented: $isUploading){
+                    VStack{
+                    Text("You have successfully create one memory!")
+                            .font(.title2)
+                            .fontWeight(.bold)
+                            .padding(.vertical, 20)
+                            
+                    Image("successPhoto")
+                        NavigationLink(destination: {
+                            
+                        }, label: {
+                            ZStack{
+
+                                Rectangle()
+                                    .shadow(color: Color(.sRGB, red: 64/255, green: 64/255, blue: 64/255, opacity: 0.3), radius: 40, x:0,y:20)
+                                    .frame(height:50)
+                                    .foregroundColor(Color.gray.opacity(0.2))
+                                    .cornerRadius(10)
+                                HStack{
+                                    Image(systemName: "sparkles")
+                                Text("Go to see my memory!")
+                                    .font(.title3)
+                                    .fontWeight(.medium)
+                                }
+                            }
+                        })
+                            .padding()
+                        NavigationLink(destination: {
+                            HomeView(showMenu: $showMenu)
+                        }, label: {
+                            ZStack{
+
+                                Rectangle()
+                                    .shadow(color: Color(.sRGB, red: 64/255, green: 64/255, blue: 64/255, opacity: 0.3), radius: 40, x:0,y:20)
+                                    .frame(height:50)
+                                    .foregroundColor(Color.gray.opacity(0.2))
+                                    .cornerRadius(10)
+                                HStack{
+                                    Image(systemName: "tropicalstorm")
+                                Text("Continue to create memory!")
+                                    .font(.title3)
+                                    .fontWeight(.medium)
+                                }
+                            }
+                        })
+                            .padding()
+                    }.padding()
+                    Spacer()
                 }
 
 //            NavigationLink(destination: {

@@ -26,6 +26,7 @@
 		8293FE95275C669100BD7D2B /* UMemUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8293FE94275C669100BD7D2B /* UMemUITestsLaunchTests.swift */; };
 		8293FEA9275C832500BD7D2B /* SideMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8293FEA8275C832500BD7D2B /* SideMenu.swift */; };
 		8293FEAD275C839800BD7D2B /* MemHomePageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8293FEAC275C839800BD7D2B /* MemHomePageView.swift */; };
+		829D6769277383D400A9E791 /* MemoryList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 829D6768277383D400A9E791 /* MemoryList.swift */; };
 		82D767BE2766574C005AE8A7 /* Memory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82D767BD2766574C005AE8A7 /* Memory.swift */; };
 		82D767C1276736CF005AE8A7 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82D767C0276736CF005AE8A7 /* ImagePicker.swift */; };
 		82D767C42768BD40005AE8A7 /* PhotoEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82D767C32768BD40005AE8A7 /* PhotoEditor.swift */; };
@@ -74,6 +75,7 @@
 		8293FE94275C669100BD7D2B /* UMemUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UMemUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		8293FEA8275C832500BD7D2B /* SideMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenu.swift; sourceTree = "<group>"; };
 		8293FEAC275C839800BD7D2B /* MemHomePageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemHomePageView.swift; sourceTree = "<group>"; };
+		829D6768277383D400A9E791 /* MemoryList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryList.swift; sourceTree = "<group>"; };
 		82D767BD2766574C005AE8A7 /* Memory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Memory.swift; sourceTree = "<group>"; };
 		82D767C0276736CF005AE8A7 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		82D767C2276739AB005AE8A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -202,6 +204,7 @@
 				82D767C0276736CF005AE8A7 /* ImagePicker.swift */,
 				82D767C32768BD40005AE8A7 /* PhotoEditor.swift */,
 				82D767C9276C7E2E005AE8A7 /* test.swift */,
+				829D6768277383D400A9E791 /* MemoryList.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -350,6 +353,7 @@
 				8293FE7C275C669100BD7D2B /* Persistence.swift in Sources */,
 				82495992275FB9F7008AF5E3 /* ImageResizer.swift in Sources */,
 				82495989275CA40F008AF5E3 /* HomeView.swift in Sources */,
+				829D6769277383D400A9E791 /* MemoryList.swift in Sources */,
 				8293FE7F275C669100BD7D2B /* UMem.xcdatamodeld in Sources */,
 				82D767C6276B4AB9005AE8A7 /* ImageFilterViewModel.swift in Sources */,
 				8249599B276096C8008AF5E3 /* CameraCapturingView.swift in Sources */,
