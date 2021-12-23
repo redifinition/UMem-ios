@@ -52,7 +52,7 @@ struct MemoryList: View {
                                             .lineLimit(1)
                                         HStack{
                                             Image(systemName: "bookmark.circle.fill")
-                                            ForEach(1..<self.memoryListViewModel.memoryData[index].tagList.count < 3 ? self.memoryListViewModel.memoryData[index].tagList.count : 3, id:\.self){i in
+                                            ForEach(1..<self.memoryListViewModel.memoryData[index].tagList.count, id:\.self){i in
 
                                                 ZStack{
                                                     RoundedRectangle(cornerRadius: 0)
@@ -69,7 +69,7 @@ struct MemoryList: View {
                                                 
                                                 }
 
-                                        }    .padding(.horizontal, 3)                                        .padding(.horizontal,3)
+                                        }
                                         HStack{
                                             Image(systemName: "face.smiling")
                                         ZStack{
@@ -90,10 +90,12 @@ struct MemoryList: View {
                                                 .font(.caption2)
                                                 .fontWeight(.medium)
                                             
-                                        }.padding(.horizontal, 1)
+                                        }
                                         
                                         Spacer()
-                                    }.frame(width: 170, height:70)
+                                    }
+                                    .padding(.horizontal, 5)
+                                    .frame(width: 170, height:70)
                                     
 
                             }
