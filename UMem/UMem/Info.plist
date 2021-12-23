@@ -4,6 +4,11 @@
 <dict>
 	<key>Media Library Usage Description</key>
 	<string>use your photo library</string>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
 	<key>Photo Library Additions Usage Description</key>
 	<string>store photos to your library</string>
 </dict>

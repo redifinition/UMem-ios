@@ -259,6 +259,8 @@ struct PictureResultView: View {
                         .font(.caption)
                     Button(action: {
                         self.moodSheetIsPresented.toggle()
+                        //首先结束相机捕捉
+                        self.model.stopCapturing()
                     }, label: {
                         Image(systemName: "pencil.circle")
                     })
@@ -331,6 +333,8 @@ struct PictureResultView: View {
                     }
                     Button(action: {
                         self.tagSheetIsPresented.toggle()
+                        //首先结束相机捕捉
+                        self.model.stopCapturing()
                     }, label: {
                         Image(systemName: "pencil.circle")
                     })
@@ -495,7 +499,8 @@ struct PictureResultView: View {
                     self.isEditored.append(false)
                 }
                 self.model.clearPhoto()
-                
+                //首先结束相机捕捉
+                self.model.stopCapturing()
             }
             )
 //            .onDisappear(perform: {

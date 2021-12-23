@@ -17,6 +17,7 @@
 		8249599D2760CB02008AF5E3 /* PictureResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8249599C2760CB02008AF5E3 /* PictureResultView.swift */; };
 		8291D8B527749D9400486C03 /* PhotoListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8291D8B427749D9400486C03 /* PhotoListViewModel.swift */; };
 		8291D8B72774A21400486C03 /* MemoryBasicInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8291D8B62774A21300486C03 /* MemoryBasicInfo.swift */; };
+		8291D8BC2774EC2400486C03 /* URLImage in Frameworks */ = {isa = PBXBuildFile; productRef = 8291D8BB2774EC2400486C03 /* URLImage */; };
 		8293FE73275C668E00BD7D2B /* UMemApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8293FE72275C668E00BD7D2B /* UMemApp.swift */; };
 		8293FE75275C668E00BD7D2B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8293FE74275C668E00BD7D2B /* ContentView.swift */; };
 		8293FE77275C669100BD7D2B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8293FE76275C669100BD7D2B /* Assets.xcassets */; };
@@ -94,6 +95,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8291D8BC2774EC2400486C03 /* URLImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -134,9 +136,17 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		8291D8B82774EA8C00486C03 /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Packages;
+			sourceTree = "<group>";
+		};
 		8293FE66275C668E00BD7D2B = {
 			isa = PBXGroup;
 			children = (
+				8291D8B82774EA8C00486C03 /* Packages */,
 				8293FE71275C668E00BD7D2B /* UMem */,
 				8293FE87275C669100BD7D2B /* UMemTests */,
 				8293FE91275C669100BD7D2B /* UMemUITests */,
@@ -240,6 +250,9 @@
 			dependencies = (
 			);
 			name = UMem;
+			packageProductDependencies = (
+				8291D8BB2774EC2400486C03 /* URLImage */,
+			);
 			productName = UMem;
 			productReference = 8293FE6F275C668E00BD7D2B /* UMem.app */;
 			productType = "com.apple.product-type.application";
@@ -312,6 +325,9 @@
 				Base,
 			);
 			mainGroup = 8293FE66275C668E00BD7D2B;
+			packageReferences = (
+				8291D8BA2774EC2400486C03 /* XCRemoteSwiftPackageReference "url-image" */,
+			);
 			productRefGroup = 8293FE70275C668E00BD7D2B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -733,6 +749,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		8291D8BA2774EC2400486C03 /* XCRemoteSwiftPackageReference "url-image" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/dmytro-anokhin/url-image";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		8291D8BB2774EC2400486C03 /* URLImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8291D8BA2774EC2400486C03 /* XCRemoteSwiftPackageReference "url-image" */;
+			productName = URLImage;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		8293FE7D275C669100BD7D2B /* UMem.xcdatamodeld */ = {

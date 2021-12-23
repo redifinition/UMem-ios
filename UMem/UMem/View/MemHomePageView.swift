@@ -98,14 +98,14 @@ struct MemHomePage: View {
             .offset(x: -sideBarWidth / 2)
             .offset(x: offset)
             //手势
-            .gesture(
-                DragGesture()
-                    .updating($gestureOffset, body: { value, out,_ in
-                        out = value.translation.width
-                    })
-                    .onEnded(onEnd(value:))
-            
-            )
+//            .gesture(
+//                DragGesture()
+//                    .updating($gestureOffset, body: { value, out,_ in
+//                        out = value.translation.width
+//                    })
+//                    .onEnded(onEnd(value:))
+//            
+//            )
             //no navigation bar title
             //hidding navigation bar
             .navigationBarTitleDisplayMode(.inline)

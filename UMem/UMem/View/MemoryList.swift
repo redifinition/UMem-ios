@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import URLImage
 
 struct MemoryList: View {
     @ObservedObject var memoryListViewModel = MemoryListViewModel()
@@ -41,11 +42,7 @@ struct MemoryList: View {
                                         .frame(width: 180, height:120)
                                         .foregroundColor(Color(.sRGB, red: 255/255, green: 223/255, blue: 201/255, opacity: 1))
                                         .cornerRadius(20, corners: [.topLeft,.topRight])
-                                    UIImage(data: self.memoryListViewModel.memoryData[index].photoUrlList[0])
-                            .resizable()
-                            .aspectRatio(contentMode: .fill)
-                            .frame(width: 180, height: 120)
-                            .cornerRadius(20, corners: [.topLeft,.topRight])
+                                    ImageBlock(url: URL(string:  self.memoryListViewModel.memoryData[index].photoUrlList[0])!)
                                 }
 
                                     VStack(alignment: .leading) {
@@ -126,7 +123,16 @@ struct MemoryList_Previews: PreviewProvider {
     }
 }
 
-
+@ViewBuilder
+func ImageBlock(url: URL)->some View{
+    URLImage(url) { image in
+        image
+            .resizable()
+            .aspectRatio(contentMode: .fill)
+            .frame(width: 180, height: 120)
+            .cornerRadius(20, corners: [.topLeft,.topRight])
+    }
+}
 class Observer: ObservableObject {
 
     @Published var enteredForeground = true
