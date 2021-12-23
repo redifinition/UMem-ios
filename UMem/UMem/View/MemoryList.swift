@@ -50,32 +50,36 @@ struct MemoryList: View {
                                             .font(.callout)
                                             .fontWeight(.medium)
                                             .lineLimit(1)
-                                            LazyVGrid(columns: [GridItem(.flexible()),GridItem(.flexible()),GridItem(.flexible()),GridItem(.flexible())], spacing:5){
-                                                ForEach(0..<self.memoryListViewModel.memoryData[index].tagList.count, id:\.self){i in
+                                        HStack{
+                                            Image(systemName: "bookmark.circle.fill")
+                                            ForEach(1..<self.memoryListViewModel.memoryData[index].tagList.count < 3 ? self.memoryListViewModel.memoryData[index].tagList.count : 3, id:\.self){i in
+
                                                 ZStack{
                                                     RoundedRectangle(cornerRadius: 0)
-                                                        .frame(width: 40, height:15)
+                                                        .frame(width: 45, height:15)
                                                         .foregroundColor(Color(.sRGB, red: 169/255, green: 196/255, blue: 232/255, opacity: 1))
                                                         .cornerRadius(10)
                                                     
                                                     Text(self.memoryListViewModel.memoryData[index].tagList[i])
-                                                        .font(.caption2)
+                                                        .font(.custom("", size: 9))
                                                         .fontWeight(.medium)
                                                         .foregroundColor(.gray)
 
                                                 }
                                                 
-                                            }
-                                            }.padding(.horizontal,3)
+                                                }
+
+                                        }    .padding(.horizontal, 3)                                        .padding(.horizontal,3)
                                         HStack{
+                                            Image(systemName: "face.smiling")
                                         ZStack{
                                             RoundedRectangle(cornerRadius: 0)
-                                                .frame(width: 40, height:15)
+                                                .frame(width: 45, height:15)
                                                 .foregroundColor(Color(.sRGB, red: 100/255, green: 100/255, blue: 100/255, opacity: 0.1))
                                                 .cornerRadius(10)
                                             
                                             Text(self.memoryListViewModel.memoryData[index].mood)
-                                                .font(.caption2)
+                                                .font(.custom("", size: 9))
                                                 .fontWeight(.medium)
                                                 .foregroundColor(.gray)
                                             
