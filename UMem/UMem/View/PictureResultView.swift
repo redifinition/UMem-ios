@@ -591,7 +591,7 @@ func postMemoryData(imageList: [UIImage], memoryDate: Date, mood: Int, choosedTa
     request.setValue("application/json", forHTTPHeaderField: "Accept")
     request.setValue("application/json", forHTTPHeaderField: "Content-Type")
     
-    let title = memoryTitle == "" ? "This memory has no title" : memoryTitle
+    let title = memoryTitle == "" ? "No title" : memoryTitle
     let newTodoItem = MemoryData(photoDataList: imageBase64Data, memoryTitle: title, memoryContent: memoryContent, mood: mood, tagList: choosedTagList, memoryDate: memoryDateStr)
     
     let jsonData = try! JSONEncoder().encode(newTodoItem)
