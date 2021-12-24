@@ -16,6 +16,8 @@ class MemoryListViewModel: ObservableObject{
     
     var memoryData = [MemoryBasicInfo]()
     
+    @Published var showListArray:[Bool] = []
+    
     //调取远端API获取
     func getMemoryListofUser(completion:@escaping(Int)->()){
         let url = URL(string: "http://47.102.195.143:8080/memory/basicinfo")
@@ -37,12 +39,25 @@ class MemoryListViewModel: ObservableObject{
                                     // 3.
 //                                    let decodedData = try JSONDecoder().decode([Todo].self, from: todoData)
                                     if let decodedResponse = try? JSONDecoder().decode(ResponseData.self, from: resultData){
+                                        
+                                        DispatchQueue.main.sync {
+
                                         self.memoryData = decodedResponse.memoryResult
                                         print("得到的data")
                                         print(self.memoryData)
                                         print(response as Any)
+                                            for i in 0..<self.memoryData.count{
+                                                if self.memoryData[i].tagList.count > 1{
+                                                    self.memoryData[i].tagList.remove(at: 0)
+                                                }
+                                            }
+                                        for _ in 0..<self.memoryData.count{
+                                            self.showListArray.append(true)
+                                        }
+
                                         completion(response!.statusCode)
                                     return
+                                        }
                                     }
                                 } else {
                                     print("No data")

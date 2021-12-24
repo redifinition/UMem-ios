@@ -15,6 +15,8 @@
 		82495999276092C7008AF5E3 /* CameraCapturingPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82495998276092C7008AF5E3 /* CameraCapturingPreview.swift */; };
 		8249599B276096C8008AF5E3 /* CameraCapturingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8249599A276096C8008AF5E3 /* CameraCapturingView.swift */; };
 		8249599D2760CB02008AF5E3 /* PictureResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8249599C2760CB02008AF5E3 /* PictureResultView.swift */; };
+		825EEABA2776211B00D79A51 /* MemoryDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 825EEAB92776211B00D79A51 /* MemoryDetail.swift */; };
+		825EEABC2776224300D79A51 /* MemoryDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 825EEABB2776224300D79A51 /* MemoryDetailViewModel.swift */; };
 		8291D8B527749D9400486C03 /* PhotoListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8291D8B427749D9400486C03 /* PhotoListViewModel.swift */; };
 		8291D8B72774A21400486C03 /* MemoryBasicInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8291D8B62774A21300486C03 /* MemoryBasicInfo.swift */; };
 		8291D8BC2774EC2400486C03 /* URLImage in Frameworks */ = {isa = PBXBuildFile; productRef = 8291D8BB2774EC2400486C03 /* URLImage */; };
@@ -65,6 +67,8 @@
 		82495998276092C7008AF5E3 /* CameraCapturingPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraCapturingPreview.swift; sourceTree = "<group>"; };
 		8249599A276096C8008AF5E3 /* CameraCapturingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraCapturingView.swift; sourceTree = "<group>"; };
 		8249599C2760CB02008AF5E3 /* PictureResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictureResultView.swift; sourceTree = "<group>"; };
+		825EEAB92776211B00D79A51 /* MemoryDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryDetail.swift; sourceTree = "<group>"; };
+		825EEABB2776224300D79A51 /* MemoryDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryDetailViewModel.swift; sourceTree = "<group>"; };
 		8291D8B427749D9400486C03 /* PhotoListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoListViewModel.swift; sourceTree = "<group>"; };
 		8291D8B62774A21300486C03 /* MemoryBasicInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryBasicInfo.swift; sourceTree = "<group>"; };
 		8291D8BD2774F7B700486C03 /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
@@ -134,6 +138,7 @@
 				82495994275FC21E008AF5E3 /* PhotoCapturerViewModel.swift */,
 				82D767C5276B4AB8005AE8A7 /* ImageFilterViewModel.swift */,
 				8291D8B427749D9400486C03 /* PhotoListViewModel.swift */,
+				825EEABB2776224300D79A51 /* MemoryDetailViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -223,6 +228,7 @@
 				82D767C9276C7E2E005AE8A7 /* test.swift */,
 				829D6768277383D400A9E791 /* MemoryList.swift */,
 				8291D8BD2774F7B700486C03 /* TestView.swift */,
+				825EEAB92776211B00D79A51 /* MemoryDetail.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -385,9 +391,11 @@
 				82D767C6276B4AB9005AE8A7 /* ImageFilterViewModel.swift in Sources */,
 				8249599B276096C8008AF5E3 /* CameraCapturingView.swift in Sources */,
 				8293FEA9275C832500BD7D2B /* SideMenu.swift in Sources */,
+				825EEABA2776211B00D79A51 /* MemoryDetail.swift in Sources */,
 				8291D8BE2774F7B700486C03 /* TestView.swift in Sources */,
 				82495990275F9A40008AF5E3 /* PhotoCaptureProcessor.swift in Sources */,
 				82495999276092C7008AF5E3 /* CameraCapturingPreview.swift in Sources */,
+				825EEABC2776224300D79A51 /* MemoryDetailViewModel.swift in Sources */,
 				82D767C42768BD40005AE8A7 /* PhotoEditor.swift in Sources */,
 				8293FEAD275C839800BD7D2B /* MemHomePageView.swift in Sources */,
 				82D767CA276C7E2E005AE8A7 /* test.swift in Sources */,

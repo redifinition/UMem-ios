@@ -12,7 +12,7 @@ struct MemoryBasicInfo: Decodable{
     let memoryTitle : String
     let photoUrlList: [String]
     let mood: String
-    let tagList: [String]
+    var tagList: [String]
     let memoryDate: String
     let memoryId : Int
 }
