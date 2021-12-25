@@ -19,7 +19,9 @@ class MemoryListViewModel: ObservableObject{
     
     @Published var showListArray:[Bool] = []
     
+    
     //调取远端API获取
+    //获取回忆列表
     func getMemoryListofUser(completion:@escaping(Int)->()){
         let url = URL(string: "http://47.102.195.143:8080/memory/basicinfo")
         guard let requestUrl = url else { fatalError() }
@@ -47,6 +49,7 @@ class MemoryListViewModel: ObservableObject{
                             print("得到的data")
                             print(self.memoryData)
                             print(response as Any)
+                            
                             for i in 0..<self.memoryData.count{
                                 if self.memoryData[i].tagList.count > 1{
                                     self.memoryData[i].tagList.remove(at: 0)
@@ -77,6 +80,35 @@ class MemoryListViewModel: ObservableObject{
             
         }
         task.resume()
+    }
+    
+    func deleteMemoryByMemoryId(memoryId: Int,completion:@escaping(Int)->()){
+        var components = URLComponents(string: "http://47.102.195.143:8080/memory/memory/deletion")!
+        components.queryItems = [
+            URLQueryItem(name: "memoryId", value: String(memoryId))
+        ]
+        components.percentEncodedQuery = components.percentEncodedQuery?.replacingOccurrences(of: "+", with: "%2B")
+        guard let requestUrl = components.url else { fatalError() }
+        var request = URLRequest(url: requestUrl)
+        request.httpMethod = "DELETE"
+        // Set HTTP Request Header
+        request.setValue("application/json", forHTTPHeaderField: "Accept")
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+            do {
+                if data != nil {
+                    let response = response as? HTTPURLResponse
+                    print(response)
+                        completion(response!.statusCode)
+                        return
+                }
+                else {
+                    print("No data")
+                }
+            }
+        }
+        task.resume()
+        
     }
     
 }

@@ -13,6 +13,7 @@ class MemoryDetailViewModel:ObservableObject{
     var memoryDetailData : MemoryDetailInfo? = nil
     
     // 调用远端api
+    //获取回忆的详细信息
     func getMemoryDetailInfo(memoryId: Int, completion:@escaping(Int)->()){
         var components = URLComponents(string: "http://47.102.195.143:8080/memory/detailedInto")!
         components.queryItems = [

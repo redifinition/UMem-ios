@@ -18,6 +18,7 @@
 		825EEABA2776211B00D79A51 /* MemoryDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 825EEAB92776211B00D79A51 /* MemoryDetail.swift */; };
 		825EEAC42776EE6B00D79A51 /* PhotoDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 825EEAC32776EE6B00D79A51 /* PhotoDetailViewModel.swift */; };
 		825EEAC62776EF8200D79A51 /* PhotoDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 825EEAC52776EF8200D79A51 /* PhotoDetail.swift */; };
+		825EEAC8277750A500D79A51 /* StatisticShowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 825EEAC7277750A400D79A51 /* StatisticShowView.swift */; };
 		8291D8B527749D9400486C03 /* PhotoListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8291D8B427749D9400486C03 /* PhotoListViewModel.swift */; };
 		8291D8B72774A21400486C03 /* MemoryBasicInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8291D8B62774A21300486C03 /* MemoryBasicInfo.swift */; };
 		8291D8BC2774EC2400486C03 /* URLImage in Frameworks */ = {isa = PBXBuildFile; productRef = 8291D8BB2774EC2400486C03 /* URLImage */; };
@@ -71,6 +72,7 @@
 		825EEAB92776211B00D79A51 /* MemoryDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryDetail.swift; sourceTree = "<group>"; };
 		825EEAC32776EE6B00D79A51 /* PhotoDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDetailViewModel.swift; sourceTree = "<group>"; };
 		825EEAC52776EF8200D79A51 /* PhotoDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDetail.swift; sourceTree = "<group>"; };
+		825EEAC7277750A400D79A51 /* StatisticShowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticShowView.swift; sourceTree = "<group>"; };
 		8291D8B427749D9400486C03 /* PhotoListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoListViewModel.swift; sourceTree = "<group>"; };
 		8291D8B62774A21300486C03 /* MemoryBasicInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryBasicInfo.swift; sourceTree = "<group>"; };
 		8291D8BD2774F7B700486C03 /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
@@ -223,6 +225,7 @@
 				829D6768277383D400A9E791 /* MemoryList.swift */,
 				8291D8BD2774F7B700486C03 /* TestView.swift */,
 				825EEAB92776211B00D79A51 /* MemoryDetail.swift */,
+				825EEAC7277750A400D79A51 /* StatisticShowView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -380,6 +383,7 @@
 				8291D8B527749D9400486C03 /* PhotoListViewModel.swift in Sources */,
 				8291D8B72774A21400486C03 /* MemoryBasicInfo.swift in Sources */,
 				82495992275FB9F7008AF5E3 /* ImageResizer.swift in Sources */,
+				825EEAC8277750A500D79A51 /* StatisticShowView.swift in Sources */,
 				82495989275CA40F008AF5E3 /* HomeView.swift in Sources */,
 				829D6769277383D400A9E791 /* MemoryList.swift in Sources */,
 				8293FE7F275C669100BD7D2B /* UMem.xcdatamodeld in Sources */,

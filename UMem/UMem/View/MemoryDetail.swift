@@ -50,11 +50,12 @@ struct MemoryDetail: View {
         }
         else{
             if #available(iOS 15.0, *) {
+                ScrollView{
                 VStack{
                     GeometryReader{ proxy in
                         TabView(selection: $currentInex){
-                            ForEach(0..<(self.photoDetailViewModel.memoryDetailData?.photoUrlList.count)!, id:\.self){i in
-                                
+                            ForEach(0..<(self.photoDetailViewModel.memoryDetailData?.photoUrlList.count == 0 ? 1 : (self.photoDetailViewModel.memoryDetailData?.photoUrlList.count)!), id:\.self){i in
+                                if (self.photoDetailViewModel.memoryDetailData?.photoUrlList.count)! > 0{
                                     AsyncImage(url: URL(string: (self.photoDetailViewModel.memoryDetailData?.photoUrlList[i])!)!) { image in
                                         image.resizable()
                                     }placeholder: {
@@ -78,7 +79,14 @@ struct MemoryDetail: View {
                                                                                 }
                                             
                                         }), ActionSheet.Button.cancel()])
-                                    }
+                                    }}
+                                else{
+                                    Image("noPhoto")
+                                        .resizable()
+                                        .scaledToFill()
+                                        .overlay(Color.black.opacity(0.1))
+                                        .tag(i)
+                                }
                                 
                                 
                             }
@@ -95,19 +103,12 @@ struct MemoryDetail: View {
                     }.frame(height: 300)
                     HStack{
                         Text(self.photoDetailViewModel.memoryDetailData!.memoryTitle)
-                            .font(.title)
+                            .font(.title2)
                             .fontWeight(.bold)
                             .lineLimit(1)
                         Spacer()
                     }.padding(.horizontal)
-                    horizontalSplit.padding(.horizontal)
-                    ScrollView{
-                        Text(self.photoDetailViewModel.memoryDetailData!.memoryContent)
-                            .font(.body)
-                            .padding()
-                    }
-                    Spacer()
-                    horizontalSplit
+
                     HStack{
                         Text("Tag:")
                             .font(.body)
@@ -119,7 +120,7 @@ struct MemoryDetail: View {
                         }.padding(.horizontal,3)
                         Spacer()
                     }.padding()
-                    horizontalSplit
+                    horizontalSplit.padding(.horizontal)
                     HStack{
                         Text("Mood:")
                             .font(.body)
@@ -131,7 +132,14 @@ struct MemoryDetail: View {
                             .foregroundColor(.gray)
                             .fontWeight(.light)
                     }.padding()
+
+                        Text(self.photoDetailViewModel.memoryDetailData!.memoryContent)
+                            .font(.body)
+                            .padding()
+                    Spacer()
+
                     
+                }
                 }
                 .task{
                     do{

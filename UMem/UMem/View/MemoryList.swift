@@ -20,6 +20,12 @@ struct MemoryList: View {
     
     @State var chosedMemoryId: Int = 0
     
+    @State var deleteButtoncheck = false
+    
+    @State var deleteCheckTag = false
+    
+    @State var chosedIndex = 0
+    
     var body: some View {
 
         VStack{
@@ -63,11 +69,29 @@ struct MemoryList: View {
                                         },label:{
                                             Image(systemName: "magnifyingglass.circle.fill")
                                         })
+                                        if !self.deleteButtoncheck{
                                     Button(action: {
-                                        print("111")
+                                        self.deleteCheckTag.toggle()
+                                        self.chosedIndex = index
                                     }, label: {
                                         Image(systemName: "delete.left.fill")
-                                    })
+                                    })                                    .actionSheet(isPresented: $deleteCheckTag) { () -> ActionSheet in
+                                        ActionSheet(title: Text("UMem"), message: Text("Do you want to delete this memory?"), buttons: [ActionSheet.Button.default(Text("Delete"), action: {
+                                            self.deleteButtoncheck.toggle()
+                                            //删除对应的回忆
+                                            self.memoryListViewModel.deleteMemoryByMemoryId(memoryId: self.memoryListViewModel.memoryData[self.chosedIndex].memoryId){response in
+                                                if response == 200{
+                                                    self.deleteButtoncheck.toggle()
+                                                    self.isLoading.toggle()
+                                                }
+                                            }
+                                            
+                                        }), ActionSheet.Button.cancel()])
+                                    }
+                                        }
+                                        else{
+                                            ProgressView()
+                                        }
                                     }
                                 }
                             }
@@ -87,7 +111,7 @@ struct MemoryList: View {
                                         .foregroundColor(Color(.sRGB, red: 255/255, green: 223/255, blue: 201/255, opacity: 1))
                                         .cornerRadius(20, corners: [.topLeft,.topRight])
 //                                    ImageBlock(url: URL(string:  self.memoryListViewModel.memoryData[index].photoUrlList[0])!)
-                                    
+                                    if self.memoryListViewModel.memoryData[index].photoUrlList.count > 0 {
                                     if #available(iOS 15.0, *) {
                                         AsyncImage(url: URL(string: self.memoryListViewModel.memoryData[index].photoUrlList[0])!) { image in
                                             image.resizable()
@@ -99,6 +123,15 @@ struct MemoryList: View {
                                         .cornerRadius(20, corners: [.topLeft,.topRight])
                                     } else {
                                     ImageBlock(url: URL(string:  self.memoryListViewModel.memoryData[index].photoUrlList[0])!)
+                                    }
+                                        
+                                    }
+                                    else{
+                                        Image("noPhoto")
+                                            .resizable()
+                                            .aspectRatio(contentMode: .fill)
+                                            .frame(width: 180, height: 120)
+                                            .cornerRadius(20, corners: [.topLeft,.topRight])
                                     }
                                 }
 
@@ -183,7 +216,9 @@ struct MemoryList: View {
                         }
                         
                         }
+                        
                 }
+
                 }.padding(.horizontal,7)
 
             }

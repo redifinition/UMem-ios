@@ -49,7 +49,7 @@ struct MemHomePage: View {
                             .navigationBarHidden(true)
                             .tag("addition")
                         
-                        Text("discover")
+                        StatisticShowView()
                             .navigationBarTitleDisplayMode(.inline)
                             .navigationBarHidden(true)
                             .tag("discover")
