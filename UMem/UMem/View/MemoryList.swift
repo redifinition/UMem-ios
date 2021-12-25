@@ -18,6 +18,8 @@ struct MemoryList: View {
     
     @State var showCardList = []
     
+    @State var chosedMemoryId: Int = 0
+    
     var body: some View {
 
         VStack{
@@ -57,7 +59,7 @@ struct MemoryList: View {
                                     Spacer()
                                     VStack{
                                         NavigationLink(destination:{
-                                            MemoryDetail()
+                                            MemoryDetail(memoryId : self.chosedMemoryId)
                                         },label:{
                                             Image(systemName: "magnifyingglass.circle.fill")
                                         })
@@ -169,6 +171,9 @@ struct MemoryList: View {
                         .rotation3DEffect(Angle(degrees: self.memoryListViewModel.showListArray[index] ? 0 : 10), axis: (x: 0,y:10, z:0))
                         .animation(.spring(response: 0.6, dampingFraction: 0.6, blendDuration: 0).delay(0.1))
                         .onTapGesture {
+                            //获取memoryid
+                            self.chosedMemoryId = self.memoryListViewModel.memoryData[index].memoryId
+                            
                             for i in 0..<self.memoryListViewModel.showListArray.count{
                                 if i != index{
                                 self.memoryListViewModel.showListArray[i] = true

@@ -1,0 +1,28 @@
+{
+  "Mac" : [
+
+  ],
+  "watchOS" : [
+
+  ],
+  "tvOS" : [
+
+  ],
+  "commitish" : "1.9.2",
+  "iOS" : [
+    {
+      "swiftToolchainVersion" : "5.5 (swiftlang-1300.0.31.1 clang-1300.0.29.1)",
+      "hash" : "43b6dbbf1d0fbbdbad67e17b6a8ba83be47cb95b1fed23f0c29dd53e950a0b9e",
+      "name" : "ImageSlideshow",
+      "container" : "ImageSlideshow.xcframework",
+      "identifier" : "ios-arm64_i386_x86_64-simulator"
+    },
+    {
+      "swiftToolchainVersion" : "5.5 (swiftlang-1300.0.31.1 clang-1300.0.29.1)",
+      "hash" : "60a4f4d241dcf4a70b84a92f80edfb844957baa49d92cf1565e53cedaa3e30d4",
+      "name" : "ImageSlideshow",
+      "container" : "ImageSlideshow.xcframework",
+      "identifier" : "ios-arm64_armv7"
+    }
+  ]
+}

@@ -16,7 +16,8 @@
 		8249599B276096C8008AF5E3 /* CameraCapturingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8249599A276096C8008AF5E3 /* CameraCapturingView.swift */; };
 		8249599D2760CB02008AF5E3 /* PictureResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8249599C2760CB02008AF5E3 /* PictureResultView.swift */; };
 		825EEABA2776211B00D79A51 /* MemoryDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 825EEAB92776211B00D79A51 /* MemoryDetail.swift */; };
-		825EEABC2776224300D79A51 /* MemoryDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 825EEABB2776224300D79A51 /* MemoryDetailViewModel.swift */; };
+		825EEAC42776EE6B00D79A51 /* PhotoDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 825EEAC32776EE6B00D79A51 /* PhotoDetailViewModel.swift */; };
+		825EEAC62776EF8200D79A51 /* PhotoDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 825EEAC52776EF8200D79A51 /* PhotoDetail.swift */; };
 		8291D8B527749D9400486C03 /* PhotoListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8291D8B427749D9400486C03 /* PhotoListViewModel.swift */; };
 		8291D8B72774A21400486C03 /* MemoryBasicInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8291D8B62774A21300486C03 /* MemoryBasicInfo.swift */; };
 		8291D8BC2774EC2400486C03 /* URLImage in Frameworks */ = {isa = PBXBuildFile; productRef = 8291D8BB2774EC2400486C03 /* URLImage */; };
@@ -68,7 +69,8 @@
 		8249599A276096C8008AF5E3 /* CameraCapturingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraCapturingView.swift; sourceTree = "<group>"; };
 		8249599C2760CB02008AF5E3 /* PictureResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictureResultView.swift; sourceTree = "<group>"; };
 		825EEAB92776211B00D79A51 /* MemoryDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryDetail.swift; sourceTree = "<group>"; };
-		825EEABB2776224300D79A51 /* MemoryDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryDetailViewModel.swift; sourceTree = "<group>"; };
+		825EEAC32776EE6B00D79A51 /* PhotoDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDetailViewModel.swift; sourceTree = "<group>"; };
+		825EEAC52776EF8200D79A51 /* PhotoDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDetail.swift; sourceTree = "<group>"; };
 		8291D8B427749D9400486C03 /* PhotoListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoListViewModel.swift; sourceTree = "<group>"; };
 		8291D8B62774A21300486C03 /* MemoryBasicInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryBasicInfo.swift; sourceTree = "<group>"; };
 		8291D8BD2774F7B700486C03 /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
@@ -138,22 +140,14 @@
 				82495994275FC21E008AF5E3 /* PhotoCapturerViewModel.swift */,
 				82D767C5276B4AB8005AE8A7 /* ImageFilterViewModel.swift */,
 				8291D8B427749D9400486C03 /* PhotoListViewModel.swift */,
-				825EEABB2776224300D79A51 /* MemoryDetailViewModel.swift */,
+				825EEAC32776EE6B00D79A51 /* PhotoDetailViewModel.swift */,
 			);
 			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		8291D8B82774EA8C00486C03 /* Packages */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Packages;
 			sourceTree = "<group>";
 		};
 		8293FE66275C668E00BD7D2B = {
 			isa = PBXGroup;
 			children = (
-				8291D8B82774EA8C00486C03 /* Packages */,
 				8293FE71275C668E00BD7D2B /* UMem */,
 				8293FE87275C669100BD7D2B /* UMemTests */,
 				8293FE91275C669100BD7D2B /* UMemUITests */,
@@ -239,6 +233,7 @@
 				82D767BD2766574C005AE8A7 /* Memory.swift */,
 				82D767C7276B4DFB005AE8A7 /* FilteredImage.swift */,
 				8291D8B62774A21300486C03 /* MemoryBasicInfo.swift */,
+				825EEAC52776EF8200D79A51 /* PhotoDetail.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -395,11 +390,12 @@
 				8291D8BE2774F7B700486C03 /* TestView.swift in Sources */,
 				82495990275F9A40008AF5E3 /* PhotoCaptureProcessor.swift in Sources */,
 				82495999276092C7008AF5E3 /* CameraCapturingPreview.swift in Sources */,
-				825EEABC2776224300D79A51 /* MemoryDetailViewModel.swift in Sources */,
 				82D767C42768BD40005AE8A7 /* PhotoEditor.swift in Sources */,
+				825EEAC42776EE6B00D79A51 /* PhotoDetailViewModel.swift in Sources */,
 				8293FEAD275C839800BD7D2B /* MemHomePageView.swift in Sources */,
 				82D767CA276C7E2E005AE8A7 /* test.swift in Sources */,
 				8293FE75275C668E00BD7D2B /* ContentView.swift in Sources */,
+				825EEAC62776EF8200D79A51 /* PhotoDetail.swift in Sources */,
 				82495995275FC21E008AF5E3 /* PhotoCapturerViewModel.swift in Sources */,
 				82D767C1276736CF005AE8A7 /* ImagePicker.swift in Sources */,
 				8249599D2760CB02008AF5E3 /* PictureResultView.swift in Sources */,
@@ -571,6 +567,7 @@
 				INFOPLIST_FILE = UMem/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "To capture your beautiful memories";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "to capture sounds of video";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "to save your beautiful photos into your photo library";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "To store your beautiful memory in your photo library";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -605,6 +602,7 @@
 				INFOPLIST_FILE = UMem/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "To capture your beautiful memories";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "to capture sounds of video";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "to save your beautiful photos into your photo library";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "To store your beautiful memory in your photo library";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
