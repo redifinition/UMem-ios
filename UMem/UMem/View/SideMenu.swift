@@ -155,7 +155,7 @@ struct SideMenu: View {
         
         NavigationLink{
             // 目前默认全部跳转到home页面
-            HomeView(showMenu: $showMenu)
+            MemHomePage()
             
         } label:{
             HStack(spacing: 14){

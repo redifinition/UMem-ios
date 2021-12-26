@@ -35,6 +35,14 @@
 		8296A6D627779A5C00A768B9 /* currentYearView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8296A6D527779A5C00A768B9 /* currentYearView.swift */; };
 		8296A6D827785CE200A768B9 /* StatisticsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8296A6D727785CE200A768B9 /* StatisticsViewModel.swift */; };
 		8296A6DA27785D6200A768B9 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8296A6D927785D6200A768B9 /* DataModel.swift */; };
+		8296A6E32778BB8100A768B9 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8296A6E22778BB8100A768B9 /* WidgetKit.framework */; };
+		8296A6E52778BB8100A768B9 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8296A6E42778BB8100A768B9 /* SwiftUI.framework */; };
+		8296A6E82778BB8100A768B9 /* UmemWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8296A6E72778BB8100A768B9 /* UmemWidget.swift */; };
+		8296A6EB2778BB8400A768B9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8296A6EA2778BB8400A768B9 /* Assets.xcassets */; };
+		8296A6ED2778BB8400A768B9 /* UmemWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 8296A6E92778BB8100A768B9 /* UmemWidget.intentdefinition */; };
+		8296A6EE2778BB8400A768B9 /* UmemWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 8296A6E92778BB8100A768B9 /* UmemWidget.intentdefinition */; };
+		8296A6F12778BB8400A768B9 /* UmemWidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 8296A6E02778BB8100A768B9 /* UmemWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		8296A6F92778C17D00A768B9 /* model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8296A6F82778C17D00A768B9 /* model.swift */; };
 		829D6769277383D400A9E791 /* MemoryList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 829D6768277383D400A9E791 /* MemoryList.swift */; };
 		82ADDCE1277783A2009625D8 /* BarChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82ADDCDD277783A2009625D8 /* BarChartView.swift */; };
 		82ADDCE2277783A2009625D8 /* BarChartCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82ADDCDE277783A2009625D8 /* BarChartCell.swift */; };
@@ -75,7 +83,28 @@
 			remoteGlobalIDString = 8293FE6E275C668E00BD7D2B;
 			remoteInfo = UMem;
 		};
+		8296A6EF2778BB8400A768B9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8293FE67275C668E00BD7D2B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8296A6DF2778BB8100A768B9;
+			remoteInfo = UmemWidgetExtension;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		8296A6F52778BB8400A768B9 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				8296A6F12778BB8400A768B9 /* UmemWidgetExtension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		82495988275CA40F008AF5E3 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -108,6 +137,14 @@
 		8296A6D527779A5C00A768B9 /* currentYearView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = currentYearView.swift; sourceTree = "<group>"; };
 		8296A6D727785CE200A768B9 /* StatisticsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsViewModel.swift; sourceTree = "<group>"; };
 		8296A6D927785D6200A768B9 /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
+		8296A6E02778BB8100A768B9 /* UmemWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = UmemWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		8296A6E22778BB8100A768B9 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		8296A6E42778BB8100A768B9 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		8296A6E72778BB8100A768B9 /* UmemWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UmemWidget.swift; sourceTree = "<group>"; };
+		8296A6E92778BB8100A768B9 /* UmemWidget.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = UmemWidget.intentdefinition; sourceTree = "<group>"; };
+		8296A6EA2778BB8400A768B9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		8296A6EC2778BB8400A768B9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8296A6F82778C17D00A768B9 /* model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = model.swift; sourceTree = "<group>"; };
 		829D6768277383D400A9E791 /* MemoryList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryList.swift; sourceTree = "<group>"; };
 		82ADDCDD277783A2009625D8 /* BarChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarChartView.swift; sourceTree = "<group>"; };
 		82ADDCDE277783A2009625D8 /* BarChartCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarChartCell.swift; sourceTree = "<group>"; };
@@ -157,6 +194,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		8296A6DD2778BB8100A768B9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8296A6E52778BB8100A768B9 /* SwiftUI.framework in Frameworks */,
+				8296A6E32778BB8100A768B9 /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -186,6 +232,8 @@
 			isa = PBXGroup;
 			children = (
 				8293FE71275C668E00BD7D2B /* UMem */,
+				8296A6E62778BB8100A768B9 /* UmemWidget */,
+				8296A6E12778BB8100A768B9 /* Frameworks */,
 				8293FE70275C668E00BD7D2B /* Products */,
 			);
 			sourceTree = "<group>";
@@ -196,6 +244,7 @@
 				8293FE6F275C668E00BD7D2B /* UMem.app */,
 				8293FE84275C669100BD7D2B /* UMemTests.xctest */,
 				8293FE8E275C669100BD7D2B /* UMemUITests.xctest */,
+				8296A6E02778BB8100A768B9 /* UmemWidgetExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -246,6 +295,27 @@
 				8296A6D527779A5C00A768B9 /* currentYearView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		8296A6E12778BB8100A768B9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8296A6E22778BB8100A768B9 /* WidgetKit.framework */,
+				8296A6E42778BB8100A768B9 /* SwiftUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8296A6E62778BB8100A768B9 /* UmemWidget */ = {
+			isa = PBXGroup;
+			children = (
+				8296A6E72778BB8100A768B9 /* UmemWidget.swift */,
+				8296A6E92778BB8100A768B9 /* UmemWidget.intentdefinition */,
+				8296A6EA2778BB8400A768B9 /* Assets.xcassets */,
+				8296A6EC2778BB8400A768B9 /* Info.plist */,
+				8296A6F82778C17D00A768B9 /* model.swift */,
+			);
+			path = UmemWidget;
 			sourceTree = "<group>";
 		};
 		82ADDCCE27778313009625D8 /* SwiftUIChart */ = {
@@ -318,10 +388,12 @@
 				8293FE6B275C668E00BD7D2B /* Sources */,
 				8293FE6C275C668E00BD7D2B /* Frameworks */,
 				8293FE6D275C668E00BD7D2B /* Resources */,
+				8296A6F52778BB8400A768B9 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				8296A6F02778BB8400A768B9 /* PBXTargetDependency */,
 			);
 			name = UMem;
 			packageProductDependencies = (
@@ -367,6 +439,23 @@
 			productReference = 8293FE8E275C669100BD7D2B /* UMemUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		8296A6DF2778BB8100A768B9 /* UmemWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8296A6F22778BB8400A768B9 /* Build configuration list for PBXNativeTarget "UmemWidgetExtension" */;
+			buildPhases = (
+				8296A6DC2778BB8100A768B9 /* Sources */,
+				8296A6DD2778BB8100A768B9 /* Frameworks */,
+				8296A6DE2778BB8100A768B9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = UmemWidgetExtension;
+			productName = UmemWidgetExtension;
+			productReference = 8296A6E02778BB8100A768B9 /* UmemWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -387,6 +476,9 @@
 					8293FE8D275C669100BD7D2B = {
 						CreatedOnToolsVersion = 13.0;
 						TestTargetID = 8293FE6E275C668E00BD7D2B;
+					};
+					8296A6DF2778BB8100A768B9 = {
+						CreatedOnToolsVersion = 13.0;
 					};
 				};
 			};
@@ -409,6 +501,7 @@
 				8293FE6E275C668E00BD7D2B /* UMem */,
 				8293FE83275C669100BD7D2B /* UMemTests */,
 				8293FE8D275C669100BD7D2B /* UMemUITests */,
+				8296A6DF2778BB8100A768B9 /* UmemWidgetExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -437,6 +530,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		8296A6DE2778BB8100A768B9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8296A6EB2778BB8400A768B9 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -459,6 +560,7 @@
 				82ADDD4227778411009625D8 /* PieChartRow.swift in Sources */,
 				82495992275FB9F7008AF5E3 /* ImageResizer.swift in Sources */,
 				8296A6DA27785D6200A768B9 /* DataModel.swift in Sources */,
+				8296A6F92778C17D00A768B9 /* model.swift in Sources */,
 				8296A6D427779A4C00A768B9 /* currentHalfYearView.swift in Sources */,
 				82ADDD472777845E009625D8 /* Helpers.swift in Sources */,
 				82495989275CA40F008AF5E3 /* HomeView.swift in Sources */,
@@ -488,6 +590,7 @@
 				82495995275FC21E008AF5E3 /* PhotoCapturerViewModel.swift in Sources */,
 				82D767C1276736CF005AE8A7 /* ImagePicker.swift in Sources */,
 				8249599D2760CB02008AF5E3 /* PictureResultView.swift in Sources */,
+				8296A6EE2778BB8400A768B9 /* UmemWidget.intentdefinition in Sources */,
 				82ADDD37277783F4009625D8 /* Legend.swift in Sources */,
 				8293FE73275C668E00BD7D2B /* UMemApp.swift in Sources */,
 				82ADDD36277783F4009625D8 /* LineView.swift in Sources */,
@@ -509,6 +612,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		8296A6DC2778BB8100A768B9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8296A6ED2778BB8400A768B9 /* UmemWidget.intentdefinition in Sources */,
+				8296A6E82778BB8100A768B9 /* UmemWidget.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -521,6 +633,11 @@
 			isa = PBXTargetDependency;
 			target = 8293FE6E275C668E00BD7D2B /* UMem */;
 			targetProxy = 8293FE8F275C669100BD7D2B /* PBXContainerItemProxy */;
+		};
+		8296A6F02778BB8400A768B9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8296A6DF2778BB8100A768B9 /* UmemWidgetExtension */;
+			targetProxy = 8296A6EF2778BB8400A768B9 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -644,6 +761,7 @@
 		8293FE99275C669100BD7D2B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -679,6 +797,7 @@
 		8293FE9A275C669100BD7D2B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -807,6 +926,60 @@
 			};
 			name = Release;
 		};
+		8296A6F32778BB8400A768B9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9KG2KSST7T;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = UmemWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = UmemWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = cn.edu.tongji.Liangqiao.UMem.UmemWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		8296A6F42778BB8400A768B9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9KG2KSST7T;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = UmemWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = UmemWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = cn.edu.tongji.Liangqiao.UMem.UmemWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -842,6 +1015,15 @@
 			buildConfigurations = (
 				8293FE9F275C669100BD7D2B /* Debug */,
 				8293FEA0275C669100BD7D2B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8296A6F22778BB8400A768B9 /* Build configuration list for PBXNativeTarget "UmemWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8296A6F32778BB8400A768B9 /* Debug */,
+				8296A6F42778BB8400A768B9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

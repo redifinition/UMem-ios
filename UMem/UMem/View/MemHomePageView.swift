@@ -110,7 +110,7 @@ struct MemHomePage: View {
             //hidding navigation bar
             .navigationBarTitleDisplayMode(.inline)
             .navigationBarHidden(true)
-        }
+        }.navigationBarHidden(true)
         .animation(.easeOut, value: offset == 0)
         .onChange(of: showMenu){newValue in
             if showMenu && offset == 0{

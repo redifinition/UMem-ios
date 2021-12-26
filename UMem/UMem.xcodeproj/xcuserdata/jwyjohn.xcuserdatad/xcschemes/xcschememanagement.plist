@@ -9,6 +9,13 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>UmemWidgetExtension.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>isShown</key>
+			<true/>
+			<key>orderHint</key>
+			<integer>2</integer>
+		</dict>
 		<key>sideMenu.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -28,6 +35,11 @@
 			<true/>
 		</dict>
 		<key>8293FE8D275C669100BD7D2B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>8296A6DF2778BB8100A768B9</key>
 		<dict>
 			<key>primary</key>
 			<true/>
