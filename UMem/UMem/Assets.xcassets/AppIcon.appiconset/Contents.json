@@ -1,81 +1,97 @@
 {
   "images" : [
     {
+      "filename" : "LogoUmem_gaitubao_40x40.png",
       "idiom" : "iphone",
       "scale" : "2x",
       "size" : "20x20"
     },
     {
+      "filename" : "LogoUmem_gaitubao_60x60.png",
       "idiom" : "iphone",
       "scale" : "3x",
       "size" : "20x20"
     },
     {
+      "filename" : "gaitubao_FmxeeR9OIJSbmFf8YRY3pT8pLqBs.png",
       "idiom" : "iphone",
       "scale" : "2x",
       "size" : "29x29"
     },
     {
+      "filename" : "gaitubao_FmBz6-RjpHAgDfudUIKzke7AWeeC.png",
       "idiom" : "iphone",
       "scale" : "3x",
       "size" : "29x29"
     },
     {
+      "filename" : "gaitubao_FiHfb8LyMtLZ4MH8HT7AAptmFA_t.png",
       "idiom" : "iphone",
       "scale" : "2x",
       "size" : "40x40"
     },
     {
+      "filename" : "gaitubao_Fi2GbrrMwsJ8VkfdZ-FeQBF1fk0v.png",
       "idiom" : "iphone",
       "scale" : "3x",
       "size" : "40x40"
     },
     {
+      "filename" : "gaitubao_Fi2GbrrMwsJ8VkfdZ-FeQBF1fk0v-2.png",
       "idiom" : "iphone",
       "scale" : "2x",
       "size" : "60x60"
     },
     {
+      "filename" : "gaitubao_Fu5TCha-OnJjzMuLIPCoMwlIUeA0-4.png",
       "idiom" : "iphone",
       "scale" : "3x",
       "size" : "60x60"
     },
     {
+      "filename" : "gaitubao_FsU93bXtdXT_bAmFtWDceWzSH4SC.png",
       "idiom" : "ipad",
       "scale" : "1x",
       "size" : "20x20"
     },
     {
+      "filename" : "gaitubao_FumSl2HY22Co7lKx-626gyqPg-q-.png",
       "idiom" : "ipad",
       "scale" : "2x",
       "size" : "20x20"
     },
     {
+      "filename" : "gaitubao_Fl3ykmd0hPiFxIlmj8c1sQLMrCMZ.png",
       "idiom" : "ipad",
       "scale" : "1x",
       "size" : "29x29"
     },
     {
+      "filename" : "gaitubao_FmxeeR9OIJSbmFf8YRY3pT8pLqBs-1.png",
       "idiom" : "ipad",
       "scale" : "2x",
       "size" : "29x29"
     },
     {
+      "filename" : "gaitubao_FumSl2HY22Co7lKx-626gyqPg-q--1.png",
       "idiom" : "ipad",
       "scale" : "1x",
       "size" : "40x40"
     },
     {
+      "filename" : "gaitubao_FiHfb8LyMtLZ4MH8HT7AAptmFA_t-1.png",
       "idiom" : "ipad",
       "scale" : "2x",
       "size" : "40x40"
     },
     {
+      "filename" : "gaitubao_FvPFNXXw3ij9gnE5xAgvKCT7_fHK-1.png",
       "idiom" : "ipad",
       "scale" : "1x",
       "size" : "76x76"
     },
     {
+      "filename" : "gaitubao_FrrPrYHCnGpoKJXc6tUGmdUZr-DP.png",
       "idiom" : "ipad",
       "scale" : "2x",
       "size" : "76x76"
@@ -86,6 +102,7 @@
       "size" : "83.5x83.5"
     },
     {
+      "filename" : "gaitubao_FtLomLAuu5tC3jfe7_xL7eJl7yIz.png",
       "idiom" : "ios-marketing",
       "scale" : "1x",
       "size" : "1024x1024"

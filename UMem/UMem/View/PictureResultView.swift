@@ -95,18 +95,25 @@ struct PictureResultView: View {
                         
                         
                         ForEach(0..<self.imageListOfLibrary.count, id: \.self){ i in
+                            ZStack{
                             NavigationLink(
                                 destination: PhotoEditor(imageList :$imageListOfLibrary, isEditored: $isEditored, index: i)
                                 
                             ){
-                                
                                 Image(uiImage: self.imageListOfLibrary[i])
                                     .resizable()
                                     .aspectRatio(contentMode: .fill)
-                                    .cornerRadius(10)
-                                    .scaledToFit()
                                     .frame(width: 85,height: 100)
+                                }
+                                Button(action:{
+                                    self.imageListOfLibrary.remove(at: i)
+                                },label:{
+                                    Image(systemName: "delete.left.fill")
+                                }).offset(x:40,y:-55)
+
+                            
                             }
+                            
                             
                         }
                         
@@ -393,6 +400,16 @@ struct PictureResultView: View {
                         }
                         
                         HStack{
+
+                            NavigationLink(destination:{
+                                MemHomePage()
+                            },label:{
+                                Image(systemName: "house.fill")
+                            })
+
+                            Text("Go to see my memory!")
+                                .font(.title3)
+                                .fontWeight(.light)
                             Spacer()
                             Button(action: {
                                 isUploading = true
@@ -423,30 +440,12 @@ struct PictureResultView: View {
                                             .padding(.vertical, 20)
                                         
                                         Image("successPhoto")
-                                        NavigationLink(destination: {
-                                            MemoryList()
+                                        Button(action: {
+                                            shouldShowResult.toggle()
                                         }, label: {
-                                            //                                            Rectangle()
-                                            //                                                .shadow(color: Color(.sRGB, red: 64/255, green: 64/255, blue: 64/255, opacity: 0.3), radius: 40, x:0,y:20)
-                                            //                                                .frame(height:50)
-                                            //                                                .foregroundColor(Color.gray.opacity(0.2))
-                                            //                                                .cornerRadius(10)
-                                            Text("Go to see my memory!")
-                                                .font(.title3)
-                                                .fontWeight(.medium)
-                                            
-                                            
+                                            Text("OK!")
                                         })
-                                            .padding()
-                                        NavigationLink(destination: {
-                                            HomeView(showMenu: $showMenu)
-                                        }, label: {
-                                            Text("Continue to create memory!")
-                                                .font(.title3)
-                                                .fontWeight(.medium)
-                                            
-                                        })
-                                            .padding()
+
                                     }.padding()
                                     Spacer()
                                 }

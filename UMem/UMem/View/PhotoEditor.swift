@@ -14,6 +14,7 @@ struct PhotoEditor: View {
     
     @Binding var isEditored: [Bool]
     
+    
     var index:Int
     
     var body: some View {
@@ -22,9 +23,9 @@ struct PhotoEditor: View {
             //如果滤镜图片加载出来了则显示
             if !coreImageData.filteredImageList.isEmpty && coreImageData.mainImage != nil && self.isEditored[index] == false{
                 
-                Image(uiImage:coreImageData.mainImage.image)
+                Image(uiImage:coreImageData.mainImage.image.rotate(radians: .pi/2)!)
                     .resizable()
-                    .aspectRatio(contentMode: .fit)
+                    .aspectRatio(contentMode: .fill)
                     .cornerRadius(10)
                     .frame(width: UIScreen.main.bounds.width)
 
@@ -42,21 +43,21 @@ struct PhotoEditor: View {
                         Image(uiImage: imageList[index])
                             .resizable()
                             .aspectRatio(contentMode: .fill)
-                            .frame(width: 150, height: 150)
+                            .frame(width: 85, height: 100)
                             .onTapGesture {
                                 coreImageData.mainImage.image = imageList[index]
                             }
                     ForEach(coreImageData.filteredImageList){filtered in
                         
-                        Image(uiImage: filtered.image)
+                        Image(uiImage: (filtered.image.rotate(radians: .pi/2))!)
                             .resizable()
                             .aspectRatio(contentMode: .fill)
-                            .frame(width: 150, height: 150)
+                            .frame(width: 85, height: 100)
                             .onTapGesture {
 //                                let updatedImage = Image(uiImage: filtered.image)
 //                                imageList[index] = updatedImage.asUIImage()
                                 coreImageData.mainImage = filtered
-
+                                
                                 
                             }
                     }
@@ -105,8 +106,12 @@ struct PhotoEditor: View {
             
         })
         .onDisappear(perform: {
-            self.isEditored[index] = true
+
             self.imageList[index] = self.coreImageData.mainImage.image
+            if self.isEditored[index] == false{
+            self.imageList[index] = self.imageList[index].rotate(radians: .pi/2)!
+                self.isEditored[index] = true
+            }
         })
         
     }
@@ -147,5 +152,36 @@ extension UIView {
         return renderer.image { rendererContext in
             layer.render(in: rendererContext.cgContext)
         }
+    }
+}
+
+
+
+
+
+
+
+
+extension UIImage {
+    func rotate(radians: Float) -> UIImage? {
+        var newSize = CGRect(origin: CGPoint.zero, size: self.size).applying(CGAffineTransform(rotationAngle: CGFloat(radians))).size
+        // Trim off the extremely small float value to prevent core graphics from rounding it up
+        newSize.width = floor(newSize.width)
+        newSize.height = floor(newSize.height)
+
+        UIGraphicsBeginImageContextWithOptions(newSize, false, self.scale)
+        let context = UIGraphicsGetCurrentContext()!
+
+        // Move origin to middle
+        context.translateBy(x: newSize.width/2, y: newSize.height/2)
+        // Rotate around middle
+        context.rotate(by: CGFloat(radians))
+        // Draw the image at its center
+        self.draw(in: CGRect(x: -self.size.width/2, y: -self.size.height/2, width: self.size.width, height: self.size.height))
+
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+
+        return newImage
     }
 }

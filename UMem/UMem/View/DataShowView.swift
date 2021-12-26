@@ -12,6 +12,24 @@ struct DataShowView: View {
     @State var currentTab = 0
     
     
+    //回忆数
+    @State var memoryNum :[Double] = [0,4,0,3]
+    
+    @State var moodNum :[Double] = [3,3,2.3,4]
+    
+    @State var Richness: [Double] = [2,4,5.3]
+    
+    @State var MoodPortionData: [Double] = [0.1,0.23,0.12,0.32,0.12,0.21]
+    
+    @State var TagData: [(String, Int)] = [("Social",63150), ("Study",50900), ("Travel",77550), ("Sport",79600), ("Love",92550),("Important",63150), ("Family",50900), ("Record",77550),("Birthday",1),("Diary",1)]
+    
+    
+    @ObservedObject var dataViewModel = StatisticViewModel()
+    
+    let chartStyle = ChartStyle(backgroundColor: Color.white, accentColor: Color.green, secondGradientColor: Colors.BorderBlue,  textColor: Color.black, legendTextColor: Color.gray, dropShadowColor: .gray )
+    
+    let barStyle = ChartStyle(backgroundColor: Color.white, accentColor: Color(.sRGB, red: 87/255, green: 163/255, blue: 255/255, opacity: 0.3), secondGradientColor: Colors.DarkPurple,  textColor: Color.black, legendTextColor: Color.gray, dropShadowColor: .gray )
+    
     
     var body: some View {
         VStack{
