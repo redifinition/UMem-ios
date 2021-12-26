@@ -33,11 +33,11 @@ struct DataShowView: View {
                 .opacity(0.5)
                 .frame(height : 0.5)
             Picker(selection: $currentTab, label: Text("")){
-                Text("最近一个月")
+                Text("Last Month")
                     .tag(0)
-                Text("最近半年")
+                Text("Last six Months")
                     .tag(1)
-                Text("最近一年")
+                Text("Last Year")
                     .tag(2)
             }.pickerStyle(SegmentedPickerStyle())
             .padding(.horizontal)
@@ -53,6 +53,7 @@ struct DataShowView: View {
             }
             Spacer()
         }
+        .edgesIgnoringSafeArea(.bottom)
     }
 }
 
