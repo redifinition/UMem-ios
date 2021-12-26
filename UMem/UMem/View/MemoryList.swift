@@ -253,7 +253,7 @@ struct MemoryList: View {
         }.frame(width: 180, height:200)
         //.offset(x: showCard ?  : 10)
         .rotationEffect(Angle(degrees: showCard ? 0 : -10))
-        .animation(.spring(response: 0.6, dampingFraction: 0.6, blendDuration: 0).delay(0.2))
+//        .animation(.spring(response: 0.6, dampingFraction: 0.6, blendDuration: 0).delay(0.2))
     }
         
 }
