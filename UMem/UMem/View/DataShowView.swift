@@ -11,12 +11,15 @@ struct DataShowView: View {
     //当前选择的查看选项
     @State var currentTab = 0
     
+    
+    
     var body: some View {
         VStack{
             HStack{
                 Image("Statistic")
                     .resizable()
                     .frame(width: 40, height: 40)
+
                 Spacer()
                 Text("Umem Data Center")
                     .font(.title3)

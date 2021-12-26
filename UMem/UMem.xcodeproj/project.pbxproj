@@ -35,6 +35,8 @@
 		8296A6D2277799F900A768B9 /* currentMonthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8296A6D1277799F900A768B9 /* currentMonthView.swift */; };
 		8296A6D427779A4C00A768B9 /* currentHalfYearView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8296A6D327779A4C00A768B9 /* currentHalfYearView.swift */; };
 		8296A6D627779A5C00A768B9 /* currentYearView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8296A6D527779A5C00A768B9 /* currentYearView.swift */; };
+		8296A6D827785CE200A768B9 /* StatisticsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8296A6D727785CE200A768B9 /* StatisticsViewModel.swift */; };
+		8296A6DA27785D6200A768B9 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8296A6D927785D6200A768B9 /* DataModel.swift */; };
 		829D6769277383D400A9E791 /* MemoryList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 829D6768277383D400A9E791 /* MemoryList.swift */; };
 		82ADDCE1277783A2009625D8 /* BarChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82ADDCDD277783A2009625D8 /* BarChartView.swift */; };
 		82ADDCE2277783A2009625D8 /* BarChartCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82ADDCDE277783A2009625D8 /* BarChartCell.swift */; };
@@ -109,6 +111,8 @@
 		8296A6D1277799F900A768B9 /* currentMonthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = currentMonthView.swift; sourceTree = "<group>"; };
 		8296A6D327779A4C00A768B9 /* currentHalfYearView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = currentHalfYearView.swift; sourceTree = "<group>"; };
 		8296A6D527779A5C00A768B9 /* currentYearView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = currentYearView.swift; sourceTree = "<group>"; };
+		8296A6D727785CE200A768B9 /* StatisticsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsViewModel.swift; sourceTree = "<group>"; };
+		8296A6D927785D6200A768B9 /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 		829D6768277383D400A9E791 /* MemoryList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryList.swift; sourceTree = "<group>"; };
 		82ADDCDD277783A2009625D8 /* BarChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarChartView.swift; sourceTree = "<group>"; };
 		82ADDCDE277783A2009625D8 /* BarChartCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarChartCell.swift; sourceTree = "<group>"; };
@@ -179,6 +183,7 @@
 				82D767C5276B4AB8005AE8A7 /* ImageFilterViewModel.swift */,
 				8291D8B427749D9400486C03 /* PhotoListViewModel.swift */,
 				825EEAC32776EE6B00D79A51 /* PhotoDetailViewModel.swift */,
+				8296A6D727785CE200A768B9 /* StatisticsViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -307,6 +312,7 @@
 				82D767C7276B4DFB005AE8A7 /* FilteredImage.swift */,
 				8291D8B62774A21300486C03 /* MemoryBasicInfo.swift */,
 				825EEAC52776EF8200D79A51 /* PhotoDetail.swift */,
+				8296A6D927785D6200A768B9 /* DataModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -461,6 +467,7 @@
 				82ADDD4427778411009625D8 /* PieChartCell.swift in Sources */,
 				82ADDD4227778411009625D8 /* PieChartRow.swift in Sources */,
 				82495992275FB9F7008AF5E3 /* ImageResizer.swift in Sources */,
+				8296A6DA27785D6200A768B9 /* DataModel.swift in Sources */,
 				8296A6D427779A4C00A768B9 /* currentHalfYearView.swift in Sources */,
 				825EEAC8277750A500D79A51 /* StatisticShowView.swift in Sources */,
 				82ADDD472777845E009625D8 /* Helpers.swift in Sources */,
@@ -470,6 +477,7 @@
 				82D767C6276B4AB9005AE8A7 /* ImageFilterViewModel.swift in Sources */,
 				82ADDCE4277783A2009625D8 /* BarChartRow.swift in Sources */,
 				8296A6D627779A5C00A768B9 /* currentYearView.swift in Sources */,
+				8296A6D827785CE200A768B9 /* StatisticsViewModel.swift in Sources */,
 				8249599B276096C8008AF5E3 /* CameraCapturingView.swift in Sources */,
 				8293FEA9275C832500BD7D2B /* SideMenu.swift in Sources */,
 				82ADDD35277783F4009625D8 /* IndicatorPoint.swift in Sources */,
